@@ -1,0 +1,25 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    display: grid;
+    grid-template: 1fr 11fr / 1fr 3fr;
+    grid-template-areas: 
+    "header header"
+    "nav main";
+}
+
+#header {
+    background-color: red;
+    grid-area: header;
+}
+
+#nav {
+    background-color: blue;
+    grid-area: nav;
+}
+
+#main {
+    background-color: gray;
+    grid-area: main;
+}
