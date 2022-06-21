@@ -9,4 +9,11 @@ const create = (title, description, starred, due) => {
         return {title, description, starred, due};
     }
 
-export {create, tasks};
+const blank = () => {
+    tasks.push(create('', '', '', ''));
+}
+const del = () => {
+
+}
+
+export {create, tasks, blank, del};

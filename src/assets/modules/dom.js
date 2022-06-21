@@ -6,6 +6,7 @@ const newProjectBtn = document.querySelector('#new-project');
 
 function listen() {
     newTaskBtn.addEventListener('click', newTaskClick);
+
 }
 
 function renderTasks() {
@@ -51,25 +52,26 @@ function renderTasks() {
         due.value = taskmod.tasks[i].due;
         task.appendChild(due);
 
-        //Delete button needs work
         const del = document.createElement('button');
         del.classList.add('delete');
         del.textContent = 'X';
+        del.addEventListener('click', deleteTask);
         task.appendChild(del);
 
         main.insertBefore(task, newTaskBtn);
-        console.log(taskmod.tasks);
     }
 }
 
 function newTaskClick() {
-    taskmod.tasks.push(taskmod.create('', '', '', ''));
+    taskmod.blank();
     renderTasks();
 }
 
-
-function deleteTask () {
-
+function deleteTask (e) {
+    let div = e.target.closest('.task');
+    let id = div.id;
+    div.remove();
+    // taskmod.delete(id);
 }
 
 export {listen, renderTasks};
