@@ -4,7 +4,7 @@ const main = document.querySelector('#main');
 const newTaskBtn = document.querySelector('#new-task');
 
 function listen() {
-    newTaskBtn.addEventListener('click', newTask);
+    newTaskBtn.addEventListener('click', displayTask);
 
     const newProjectBtn = document.querySelector('new-project');
 }
@@ -13,10 +13,10 @@ function listen() {
 // call task.create for new object (and add this to object of all tasks?)
 // add new task to DOM
 // add new task to tasks array
-function newTask() {
+function displayTask() {
     const task = document.createElement('div');
-    task.id = 'task';
+    task.classList.add('task');
     main.insertBefore(task, newTaskBtn);
 }
 
-export {listen, newTask};
+export {listen, displayTask};
