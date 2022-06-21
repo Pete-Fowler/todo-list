@@ -1,4 +1,5 @@
 body {
+    color: white;
     height: 100vh;
     width: 100vw;
     margin: 0;
@@ -10,16 +11,62 @@ body {
 }
 
 #header {
-    background-color: red;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: 700;
+    background-color: #3261EB;
     grid-area: header;
 }
 
 #nav {
-    background-color: blue;
+    background-color: #274BB8;
     grid-area: nav;
 }
 
+#nav-top {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav {
+    font-size: 2rem;
+    color: white;
+    height: 50px;
+    border-radius: 10px;
+    border: 0px;
+    margin: 10px;
+    background-color: #274BB8;
+    text-align: left;
+    transition: .6s;
+}
+
+.nav:hover, .active {
+    background-color: #7997EE;
+}
+
+#new-project, #new-task {
+    color: white;
+    font-size: 4rem;
+    height: 50px;
+    width: 50px;
+    border: 0px;
+    border-radius: 100px;
+    margin: 10px;
+    background-color: #274BB8;
+    transition: .6s;
+}
+
+#new-project:hover, #new-task:hover {
+    transform: scale(1.3);
+}
+
+#new-task {
+    background-color: #7997EE;
+}
+
 #main {
-    background-color: gray;
+    background-color: #7997EE;
     grid-area: main;
 }
