@@ -46,6 +46,13 @@ body {
     background-color: #7997EE;
 }
 
+hr {
+    color: white;
+    background-color: white;
+    height: 1px;
+    width: 95%;
+}
+
 #new-project, #new-task {
     color: white;
     font-size: 4rem;
