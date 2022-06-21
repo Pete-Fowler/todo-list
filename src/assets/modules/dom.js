@@ -50,6 +50,12 @@ function renderTasks() {
         due.value = taskmod.tasks[i].due;
         task.appendChild(due);
 
+        //Delete button needs work
+        const del = document.createElement('button');
+        del.classList.add('delete');
+        del.textContent = 'X';
+        task.appendChild(del);
+
         main.insertBefore(task, newTaskBtn);
     }
 }
@@ -59,17 +65,17 @@ function handleClick() {
 }
 
 // UI for new task info
-// add task DIV to DOM with editable inputs
+// needs functionality to link to taskmod.tasks[]
 function displayNewTask() {
+
 
     // Task div
     const task = document.createElement('div');
     task.classList.add('task');
 
     // Input elements
-
     const title = document.createElement('input');
-    title.id = 'title';
+    title.classList.add('title');
     title.setAttribute('type', 'text');
     title.setAttribute('placeholder', 'Title');
     title.setAttribute('minlength', '1');
@@ -77,7 +83,7 @@ function displayNewTask() {
     task.appendChild(title);
 
     const description = document.createElement('input');
-    description.id = 'description';
+    description.classList.add('description');
     description.setAttribute('type', 'text');
     description.setAttribute('placeholder', 'Description');
     description.setAttribute('minlength', '1');
@@ -89,18 +95,22 @@ function displayNewTask() {
     starredL.textContent = 'Important:';
 
     const starred = document.createElement('input');
-    starred.id = 'starred';
+    starred.classList.add('starred');
     starred.setAttribute('type', 'checkbox');
     starredL.appendChild(starred);
     task.appendChild(starredL);
 
     const due = document.createElement('input');
-    due.id = 'due';
+    due.classList.add('due');
     due.setAttribute('type', 'date');
     due.setAttribute('placeholder', 'Name');
     task.appendChild(due);
 
     main.insertBefore(task, newTaskBtn);
+}
+
+function deleteTask () {
+
 }
 
 export {listen, renderTasks};
