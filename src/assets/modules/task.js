@@ -1,5 +1,5 @@
-export {newTask}; 
+
  
-const newTask = (title, due, description, priority) => {
+export const create = (title, due, description, priority) => {
         return {title, due, description, priority};
     }
