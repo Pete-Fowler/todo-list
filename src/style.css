@@ -97,15 +97,23 @@ hr {
     border-radius: 10px;
 }
 
-.task input {
+.task label {
+    height: 100%;
     font-size: 1.3rem;
-    color: inherit;
+    display: flex;
+    align-items: center;
+}
+
+.task input {
+    color: white;
+    font-size: 1.3rem;
     background-color: inherit;
     height: 70%;
     border: none;
     border-radius: 5px;
     padding: 0;
     margin: 5px;
+    transition: .4s;
 }
 
 .task input:hover  {
@@ -113,8 +121,23 @@ hr {
     background-color: #7997EE;
 }
 
-.task input:focus-visible {
+.task input:focus {
     outline: none;
     background-color: #7997EE;
     border: 3px solid black;
+}
+
+.task input::placeholder{
+    color: white;
+    opacity: .6;
+}
+
+#description {
+    width: 65%;
+}
+
+#starred {
+    height: 1.3rem;
+    width: 1.3rem;
+    border-radius: 10px;
 }
