@@ -1,5 +1,5 @@
-import * as task from './assets/modules/task.js';
+// import * as task from './assets/modules/task.js';
+import * as dom from './assets/modules/dom.js';
 import './style.css';
 
-let a = task.create('run', 'running', 'march', 'high');
-console.log(a);
+dom.listen();
