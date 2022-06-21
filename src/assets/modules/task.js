@@ -1,8 +1,8 @@
 let tasks = [{
     title: 'Run',
     description: 'Go running',
-    starred: true,
-    due: 6/22/22,
+    starred: false,
+    due: '2022-06-21',
 }];
 
 const create = (title, description, starred, due) => {
