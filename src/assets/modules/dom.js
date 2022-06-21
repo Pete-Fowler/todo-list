@@ -10,12 +10,32 @@ function listen() {
 }
 
 // UI for new task info
-// call task.create for new object (and add this to object of all tasks?)
-// add new task to DOM
-// add new task to tasks array
+// add task DIV to DOM with editable inputs
 function displayTask() {
+
+    // Task div
     const task = document.createElement('div');
     task.classList.add('task');
+
+    // Input elements
+    const title = document.createElement('input');
+    title.id = 'name';
+    title.setAttribute('placeholder', 'Name');
+    title.setAttribute('type', 'text');
+    title.setAttribute('minlength', '1');
+    title.setAttribute('maxlength', '25');
+    task.appendChild(title);
+
+    const description = document.createElement('input');
+    description.id = 'description';
+    
+    const priority = document.createElement('input');
+    priority.id = 'priority';
+    
+    const due = document.createElement('input');
+    due.id = 'due';
+
+
     main.insertBefore(task, newTaskBtn);
 }
 
