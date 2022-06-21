@@ -97,14 +97,7 @@ hr {
     border-radius: 10px;
 }
 
-.task label {
-    height: 100%;
-    font-size: 1.3rem;
-    display: flex;
-    align-items: center;
-}
-
-.task input {
+.task input, .task label {
     color: white;
     font-size: 1.3rem;
     background-color: inherit;
@@ -116,8 +109,7 @@ hr {
     transition: .4s;
 }
 
-.task input:hover  {
-    /* outline: none; */
+.task input:hover, .task label:hover  {
     background-color: #7997EE;
 }
 
@@ -132,11 +124,18 @@ hr {
     opacity: .6;
 }
 
-#description {
+.description {
     width: 65%;
 }
 
-#starred {
+.task label {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+
+.starred {
     height: 1.3rem;
     width: 1.3rem;
     border-radius: 10px;

@@ -1,17 +1,66 @@
-import * as task from './task.js';
+import * as taskmod from './task.js';
 
 const main = document.querySelector('#main');
 const newTaskBtn = document.querySelector('#new-task');
+const newProjectBtn = document.querySelector('#new-project');
 
 function listen() {
-    newTaskBtn.addEventListener('click', displayTask);
+    newTaskBtn.addEventListener('click', handleClick);
+}
 
-    const newProjectBtn = document.querySelector('new-project');
+function renderTasks() {
+    for(let i=0; i < taskmod.tasks.length; i++) {
+        const task = document.createElement('div');
+        task.id = `${i}`;
+        task.classList.add('task');
+
+        const title = document.createElement('input');
+        title.classList.add('title');
+        title.setAttribute('type', 'text');
+        title.setAttribute('placeholder', 'Title');
+        title.setAttribute('minlength', '1');
+        title.setAttribute('maxlength', '25');
+        title.value = taskmod.tasks[i].title;
+        task.appendChild(title);
+
+        const description = document.createElement('input');
+        description.classList.add('description');
+        description.setAttribute('type', 'text');
+        description.setAttribute('placeholder', 'Description');
+        description.setAttribute('minlength', '1');
+        description.setAttribute('maxlength', '111');
+        description.value = taskmod.tasks[i].description;
+        task.appendChild(description);
+
+        const starredL = document.createElement('label');
+        starredL.setAttribute('for', 'starred');
+        starredL.textContent = 'Important:';
+
+        const starred = document.createElement('input');
+        starred.classList.add('starred');
+        starred.setAttribute('type', 'checkbox');
+        starred.value = taskmod.tasks[i].starred;
+        starredL.appendChild(starred);
+        task.appendChild(starredL);
+
+        const due = document.createElement('input');
+        due.classList.add('due');
+        due.setAttribute('type', 'date');
+        due.setAttribute('placeholder', 'Name');
+        due.value = taskmod.tasks[i].due;
+        task.appendChild(due);
+
+        main.insertBefore(task, newTaskBtn);
+    }
+}
+
+function handleClick() {
+    displayNewTask();
 }
 
 // UI for new task info
 // add task DIV to DOM with editable inputs
-function displayTask() {
+function displayNewTask() {
 
     // Task div
     const task = document.createElement('div');
@@ -32,7 +81,7 @@ function displayTask() {
     description.setAttribute('type', 'text');
     description.setAttribute('placeholder', 'Description');
     description.setAttribute('minlength', '1');
-    description.setAttribute('maxlength', '74');
+    description.setAttribute('maxlength', '111');
     task.appendChild(description);
 
     const starredL = document.createElement('label');
@@ -54,4 +103,4 @@ function displayTask() {
     main.insertBefore(task, newTaskBtn);
 }
 
-export {listen, displayTask};
+export {listen, renderTasks};

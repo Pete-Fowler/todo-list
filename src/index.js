@@ -3,3 +3,4 @@ import * as dom from './assets/modules/dom.js';
 import './style.css';
 
 dom.listen();
+dom.renderTasks();
