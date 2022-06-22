@@ -70,8 +70,8 @@ function newTaskClick() {
 function deleteTask (e) {
     let div = e.target.closest('.task');
     let id = div.id;
-    div.remove();
-    // taskmod.delete(id);
+    taskmod.del(id);
+    renderTasks();
 }
 
 export {listen, renderTasks};

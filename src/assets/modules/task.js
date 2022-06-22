@@ -12,8 +12,8 @@ const create = (title, description, starred, due) => {
 const blank = () => {
     tasks.push(create('', '', '', ''));
 }
-const del = () => {
-
+const del = (id) => {
+    tasks.splice(id, 1);
 }
 
 export {create, tasks, blank, del};

@@ -1,8 +1,5 @@
 
-When the new task button is clicked:
+add project label to task element
+this is a dropdown menu that will assign the task to a project
+will toggle classes to assign/unassign to each project
 
-A new task appears, editable inline, with title, desc, impt, date, and DELETE**.
-User enters the information
-    (add functionality to hit enter off of field?)
-task object is created with task.js
-This object gets added to tasks array(or object?)
