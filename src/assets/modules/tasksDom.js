@@ -1,4 +1,4 @@
-import * as taskmod from './task.js';
+import * as taskmod from './tasks.js';
 
 const main = document.querySelector('#main');
 const newTaskBtn = document.querySelector('#new-task');
@@ -38,6 +38,12 @@ function renderTasks() {
         const starredL = document.createElement('label');
         starredL.setAttribute('for', 'starred');
         starredL.textContent = 'Important:';
+
+        const project = document.createElement('input');
+        project.classList = 'project';
+        if (taskmod.tasks[i].project = '') {
+            taskmod.tasks[i].project = ''
+        }
 
         const starred = document.createElement('input');
         starred.classList.add('starred');
