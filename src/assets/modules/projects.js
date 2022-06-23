@@ -1,11 +1,16 @@
-const projects = [{name: 'Main'}];
+const projects = [
+    {
+    name: 'Main',
+    tasks: []
+    },
+];
 
-const create = (name) => {
-    return {name};
+const create = (name, tasks) => {
+    return {name, tasks};
 }
 
 const blank = () => {
-    projects.push(create(''));
+    projects.push(create('', ''));
 }
 
 

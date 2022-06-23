@@ -77,21 +77,21 @@ function render() {
       
         task.appendChild(menu);
 
-    // original delete button
-        // const del = document.createElement('button');
-        // del.classList.add('delete');
-        // del.textContent = 'X';
-        // del.addEventListener('click', deleteTask);
-        // task.appendChild(del);
-
         main.insertBefore(task, newTaskBtn);
     }
 }
 
 function handleChange(e) {
-    if (this.value === 'Delete Task')
+    if (this.value === 'Delete Task')   // this.value is string like 'Main'
     {
         deleteTask(e);
+    } else {
+        let p = projects.find(projectName => this.value);
+                        // p now points to projects object {}
+        let div = e.target.closest('.task');
+        let id = div.id;
+        taskmod.tasks[id].project = this.value;
+        console.log(taskmod.tasks[id]);
     }
 }
 
