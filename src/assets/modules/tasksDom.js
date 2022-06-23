@@ -41,9 +41,6 @@ function render() {
 
         const project = document.createElement('input');
         project.classList = 'project';
-        if (taskmod.tasks[i].project = '') {
-            taskmod.tasks[i].project = ''
-        }
 
         const starred = document.createElement('input');
         starred.classList.add('starred');

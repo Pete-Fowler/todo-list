@@ -1,20 +1,30 @@
-import { projects } from "./projects"
+import * as projects from "./projects";
 
-const wrapper = document.querySelector('#nav-projects');
+const nav = document.querySelector('#nav-projects');
 const newProjectBtn = document.querySelector('#new-project');
 
 const render = () => {
-    for(let i=0; i < projects.length; i++) {
-        const proj = document.createElement('div');
+    const domProjects = document.querySelectorAll('.project');
+    domProjects.forEach(e => e.remove());
+    
+    for(let i=0; i < projects.projects.length; i++) {
+        const proj = document.createElement('input');
         proj.id = `p${i}`;
+        proj.setAttribute('placeholder', 'Project');
+        proj.classList.add('nav');
         proj.classList.add('project');
-        proj.textContent = projects[i];
-        wrapper.insertBefore(proj, newProjectBtn);
+        proj.value = projects.projects[i].name;
+        nav.insertBefore(proj, newProjectBtn);
     }
 }
 
-// const listen = () => {
-//     newProjectBtn.addEventListener('click', handleClick);
-// } 
+const addProject = () => {
+    projects.blank();
+    render();
+}
 
-export {render}
+const listen = () => {
+    newProjectBtn.addEventListener('click', addProject);
+}
+
+export {render, listen};

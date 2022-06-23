@@ -1,3 +1,13 @@
-const projects = ['Main'];
+const projects = [{name: 'Main'}];
 
-export {projects};
+const create = (name) => {
+    return {name};
+}
+
+const blank = () => {
+    projects.push(create(''));
+}
+
+
+
+export {projects, blank};

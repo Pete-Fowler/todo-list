@@ -5,5 +5,5 @@ import './style.css';
 
 tasksDom.listen();
 tasksDom.render();
-// projDom.listen();
+projDom.listen();
 projDom.render()

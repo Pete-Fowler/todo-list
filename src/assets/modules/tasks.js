@@ -11,7 +11,7 @@ const create = (title, description, starred, due, project) => {
     }
 
 const blank = () => {
-    tasks.push(create('', '', '', ''));
+    tasks.push(create('', '', '', '', ''));
 }
 const del = (id) => {
     tasks.splice(id, 1);
