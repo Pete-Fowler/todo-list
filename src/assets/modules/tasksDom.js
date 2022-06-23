@@ -5,6 +5,8 @@ const main = document.querySelector('#main');
 const newTaskBtn = document.querySelector('#new-task');
 const newProjectBtn = document.querySelector('#new-project');
 
+window.addEventListener('click', closeDrop);
+
 function listen() {
     newTaskBtn.addEventListener('click', newTaskClick);
 
@@ -79,6 +81,15 @@ function render() {
         task.appendChild(dropDown);
 
         main.insertBefore(task, newTaskBtn);
+    }
+}
+
+function closeDrop(e) {
+    if (!e.target.matches('.dropdown-button')) {
+        let ddc = document.querySelector('.dropdown-content');
+        if(ddc.classList.contains('show')) {
+            ddc.classList.remove('show');
+        }
     }
 }
 

@@ -136,7 +136,7 @@ hr {
 .starred {
     height: 1.3rem;
     width: 1.3rem;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .dropdown {
@@ -153,9 +153,21 @@ hr {
     display: none;
     position: absolute;
     right: 0;
-    min-width: 100px;
+    
+    
     box-shadow: 4px 4px 16px 0px darkgray;
     z-index: 5;
+
+    color: white;
+    font-size: 1.3rem;
+    background-color: #3261EB;
+    height: 40px;
+    min-width: 150px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0px;
+    transition: .4s;
 }
 
 .show {
@@ -163,5 +175,13 @@ hr {
 }
 
 .menu-project {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    transition: .4s;
+    border-radius: 5px;
+}
 
+.menu-project:hover {
+    background-color: #7997EE;
 }
