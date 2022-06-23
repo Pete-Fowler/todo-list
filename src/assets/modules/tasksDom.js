@@ -28,6 +28,7 @@ function render() {
             title.setAttribute('maxlength', '25');
             title.value = taskmod.tasks[i].title;
             task.appendChild(title);
+            title.addEventListener('change', handleChange);
 
         const description = document.createElement('input');
             description.classList.add('description');
@@ -37,6 +38,7 @@ function render() {
             description.setAttribute('maxlength', '111');
             description.value = taskmod.tasks[i].description;
             task.appendChild(description);
+            description.addEventListener('change', handleChange);
 
         const starredL = document.createElement('label');
             starredL.setAttribute('for', 'starred');
@@ -48,12 +50,14 @@ function render() {
             starred.value = taskmod.tasks[i].starred;
             starredL.appendChild(starred);
             task.appendChild(starredL);
+            starredL.addEventListener('change', handleChange);
 
         const due = document.createElement('input');
             due.classList.add('due');
             due.setAttribute('type', 'date');
             due.value = taskmod.tasks[i].due;
             task.appendChild(due);
+            due.addEventListener('change', handleChange);
 
         const dropDown = document.createElement('div');
             dropDown.classList.add('dropdown');
@@ -81,6 +85,7 @@ function render() {
                     proj.classList.add('menu-item');
                     proj.textContent = projects[i].name;
                     dropDownContent.appendChild(proj);
+                    // proj.addEventListener('click', assignTask);
                 }
                 dropDown.appendChild(dropDownContent);
 
@@ -105,16 +110,10 @@ function handleDrop() {
 }
 
 function handleChange(e) {
-    if (this.value === 'Delete Task')   // this.value is string like 'Main'
-    {
-        deleteTask(e);
-    } else {
-        let p = projects.find(projectName => this.value);   // p now points to projects object {}
-        let div = e.target.closest('.task');
-        let id = div.id;
-        taskmod.tasks[id].project = this.value;
-        console.log(taskmod.tasks[id]);
-    }
+    let property = e.target.className;
+    let value = e.target.value;
+    let id = e.target.closest('.task').id;
+    taskmod.update(id, property, value)
 }
 
 function newTaskClick() {
@@ -123,8 +122,7 @@ function newTaskClick() {
 }
 
 function deleteTask (e) {
-    let div = e.target.closest('.task');
-    let id = div.id;
+    let id = e.target.closest('.task').id;
     taskmod.del(id);
     render();
 }

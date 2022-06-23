@@ -6,6 +6,11 @@ let tasks = [{
     project: '',
 }];
 
+const update = (index, property, value) => {
+    tasks[index][property] = value;
+    console.log(tasks[index]);
+}
+
 const create = (title, description, starred, due, project) => {
         return {title, description, starred, due, project};
     }
@@ -17,4 +22,4 @@ const del = (id) => {
     tasks.splice(id, 1);
 }
 
-export {create, tasks, blank, del};
+export {update, create, tasks, blank, del};
