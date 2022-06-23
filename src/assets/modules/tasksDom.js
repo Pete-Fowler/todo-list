@@ -56,29 +56,32 @@ function render() {
         due.value = taskmod.tasks[i].due;
         task.appendChild(due);
 
-        // Dropdown menu with delete task and projects list
-        const menu = document.createElement('select');
-        menu.id = 'menu';
 
-        // Delete task
-        const del = document.createElement('option');
-        del.id = 'delete';
-        del.textContent = 'Delete Task';
-        menu.appendChild(del);
-        menu.addEventListener('change', handleChange);
+        const dropDown = document.createElement('div');
+        dropDown.classList.add('dropdown');
 
-        // Render projects list to assign task to project
-        for(let i = 0; i < projects.length; i++) {
-            const option = document.createElement('option');
-            option.id = `o${i}`;
-            option.textContent = projects[i].name;
-            menu.appendChild(option);
-        }
-      
-        task.appendChild(menu);
+            const dropDownBtn = document.createElement('button');
+            dropDownBtn.id = 'dropdown-button';
+            dropDownBtn.textContent = 'M';
+            dropDownBtn.addEventListener('click', expand);
+
+            const dropDownContent = document.createElement('div');
+            dropDownContent.classList.add = 'dropdown-content';
+
+
+        dropDown.appendChild(dropDownBtn);
+        dropDown.appendChild(dropDownContent);
+
+        task.appendChild(dropDown);
 
         main.insertBefore(task, newTaskBtn);
     }
+}
+
+function expand() {
+    document.createElement(div);
+    div.id = 'menu';
+
 }
 
 function handleChange(e) {
@@ -86,8 +89,7 @@ function handleChange(e) {
     {
         deleteTask(e);
     } else {
-        let p = projects.find(projectName => this.value);
-                        // p now points to projects object {}
+        let p = projects.find(projectName => this.value);   // p now points to projects object {}
         let div = e.target.closest('.task');
         let id = div.id;
         taskmod.tasks[id].project = this.value;

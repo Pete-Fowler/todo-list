@@ -124,7 +124,7 @@ hr {
 }
 
 .description {
-    width: 65%;
+    flex: 1 1 0;
 }
 
 .task label {
@@ -133,9 +133,21 @@ hr {
     margin-right: 20px;
 }
 
-
 .starred {
     height: 1.3rem;
     width: 1.3rem;
     border-radius: 10px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-button {
+
+}
+
+.dropdown-content {
+
 }
