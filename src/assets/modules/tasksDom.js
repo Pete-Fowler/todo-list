@@ -55,7 +55,6 @@ function render() {
             due.value = taskmod.tasks[i].due;
             task.appendChild(due);
 
-
         const dropDown = document.createElement('div');
             dropDown.classList.add('dropdown');
 
@@ -67,12 +66,19 @@ function render() {
 
             const dropDownContent = document.createElement('div');
                 dropDownContent.classList.add('dropdown-content');
+                
+                const del = document.createElement('div');
+                del.classList.add('menu-item');
+                del.textContent = 'Delete Task';
+                dropDownContent.appendChild(del);
+                del.addEventListener('click', deleteTask); 
+                
                 const mps = document.querySelectorAll('.menu-project');
                 mps.forEach(e => e.remove);
                 for (let i = 0; i < projects.length; i++) {
                     let proj = document.createElement('div');
                     proj.id = `mp${i}`;
-                    proj.classList.add('menu-project');
+                    proj.classList.add('menu-item');
                     proj.textContent = projects[i].name;
                     dropDownContent.appendChild(proj);
                 }
