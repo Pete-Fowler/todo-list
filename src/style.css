@@ -97,7 +97,7 @@ hr {
     border-radius: 10px;
 }
 
-.task input, .task label {
+.task input, .task label, .dropdown-button {
     color: white;
     font-size: 1.3rem;
     background-color: inherit;
@@ -109,7 +109,7 @@ hr {
     transition: .4s;
 }
 
-.task input:hover, .task label:hover  {
+.task input:hover, .task label:hover, .dropdown-button:hover  {
     background-color: #7997EE;
 }
 
@@ -145,9 +145,23 @@ hr {
 }
 
 .dropdown-button {
-
+    padding: 10px;
+    margin: 5px 10px;
 }
 
 .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    min-width: 100px;
+    box-shadow: 4px 4px 16px 0px darkgray;
+    z-index: 5;
+}
+
+.show {
+    display: block;
+}
+
+.menu-project {
 
 }
