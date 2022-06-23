@@ -1,3 +1,4 @@
+import { projects } from './projects.js';
 import * as taskmod from './tasks.js';
 
 const main = document.querySelector('#main');
@@ -55,13 +56,42 @@ function render() {
         due.value = taskmod.tasks[i].due;
         task.appendChild(due);
 
-        const del = document.createElement('button');
-        del.classList.add('delete');
-        del.textContent = 'X';
-        del.addEventListener('click', deleteTask);
-        task.appendChild(del);
+        // Dropdown menu with delete task and projects list
+        const menu = document.createElement('select');
+        menu.id = 'menu';
+
+        // Delete task
+        const del = document.createElement('option');
+        del.id = 'delete';
+        del.textContent = 'Delete Task';
+        menu.appendChild(del);
+        menu.addEventListener('change', handleChange);
+
+        // Render projects list to assign task to project
+        for(let i = 0; i < projects.length; i++) {
+            const option = document.createElement('option');
+            option.id = `o${i}`;
+            option.textContent = projects[i].name;
+            menu.appendChild(option);
+        }
+      
+        task.appendChild(menu);
+
+    // original delete button
+        // const del = document.createElement('button');
+        // del.classList.add('delete');
+        // del.textContent = 'X';
+        // del.addEventListener('click', deleteTask);
+        // task.appendChild(del);
 
         main.insertBefore(task, newTaskBtn);
+    }
+}
+
+function handleChange(e) {
+    if (this.value === 'Delete Task')
+    {
+        deleteTask(e);
     }
 }
 
