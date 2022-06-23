@@ -9,7 +9,7 @@ function listen() {
 
 }
 
-function renderTasks() {
+function render() {
     document.querySelectorAll('.task').forEach((e) => {e.remove()});
 
     for(let i=0; i < taskmod.tasks.length; i++) {
@@ -70,14 +70,14 @@ function renderTasks() {
 
 function newTaskClick() {
     taskmod.blank();
-    renderTasks();
+    render();
 }
 
 function deleteTask (e) {
     let div = e.target.closest('.task');
     let id = div.id;
     taskmod.del(id);
-    renderTasks();
+    render();
 }
 
-export {listen, renderTasks};
+export {listen, render};

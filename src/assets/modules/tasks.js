@@ -1,13 +1,13 @@
 let tasks = [{
     title: 'Run',
     description: 'Go running',
-    project: '',
     starred: false,
     due: '2022-06-21',
+    project: '',
 }];
 
-const create = (title, description, project, starred, due) => {
-        return {title, description, project, starred, due};
+const create = (title, description, starred, due, project) => {
+        return {title, description, starred, due, project};
     }
 
 const blank = () => {
