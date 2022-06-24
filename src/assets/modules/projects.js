@@ -13,6 +13,8 @@ const blank = () => {
     projects.push(create('', ''));
 }
 
+const add = (index, task) => {
+    projects[index].tasks.push(task);
+}
 
-
-export {projects, blank};
+export {projects, blank, add};

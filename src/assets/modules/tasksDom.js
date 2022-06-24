@@ -85,7 +85,7 @@ function render() {
                     proj.classList.add('menu-item');
                     proj.textContent = projects[i].name;
                     dropDownContent.appendChild(proj);
-                    // proj.addEventListener('click', assignTask);
+                    proj.addEventListener('click', assignTask);
                 }
                 dropDown.appendChild(dropDownContent);
 
@@ -93,6 +93,14 @@ function render() {
 
         main.insertBefore(task, newTaskBtn);
     }
+}
+
+function assignTask(e) {
+    let tIndex = e.target.closest('.task').id;
+    let pName = e.target.closest('.menu-item').textContent;
+    let pIndex = e.target.closest('.menu-item').id.slice(-1);
+
+    taskmod.update(tIndex, 'project', pName);
 }
 
 function closeDrop(e) {
