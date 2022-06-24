@@ -1,10 +1,8 @@
 
-
 Tasks
-style delete button
-add functionality to update task array when input is changed
-
-
+style select dropdown
+implement starred
+implement assign project from dropdown
 
 Projects
 add div wrapper for input and delete button
