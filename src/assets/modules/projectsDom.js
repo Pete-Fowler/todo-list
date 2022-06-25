@@ -1,3 +1,4 @@
+import * as tasksDom from './tasksDom.js';
 import * as projects from "./projects";
 import deleteIcon from '../images/delete.svg';
 
@@ -27,7 +28,6 @@ const render = () => {
         img.src = deleteIcon;
         img.id = 'delete-icon';
         img.alt = 'Delete icon';
-        img.setAttribute('class', 'nav');
         img.addEventListener('click', removeProject);
 
         wrapper.appendChild(img);
@@ -39,6 +39,7 @@ const render = () => {
 const addProject = () => {
     projects.blank();
     render();
+    tasksDom.render();
 }
 
 const removeProject = (e) => {
@@ -46,6 +47,7 @@ const removeProject = (e) => {
     let id = el.id.slice(-1);
     projects.del(id);
     el.remove();
+    tasksDom.render();
 }
 
 const listen = () => {
@@ -56,6 +58,7 @@ const handleChange = (e) => {
     let id = e.target.closest('.project-wrapper').id.slice(-1);
     let value = e.target.closest('.project').value;
     projects.update(id, 'name', value);
+    tasksDom.render();
 }
 
 export {render, listen};

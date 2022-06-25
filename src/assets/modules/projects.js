@@ -1,7 +1,7 @@
 const projects = [
     {
     name: 'Main',
-    tasks: []
+    tasks: [],
     },
 ];
 
