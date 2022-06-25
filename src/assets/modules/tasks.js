@@ -22,4 +22,12 @@ const del = (id) => {
     tasks.splice(id, 1);
 }
 
-export {update, create, tasks, blank, del};
+const toggleStarred = (index) => {
+    if (tasks[index].starred === false) {
+        tasks[index].starred = true;
+    } else {
+        tasks[index].starred = false;
+    }
+}
+
+export {update, create, tasks, blank, del, toggleStarred};

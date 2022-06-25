@@ -1,6 +1,7 @@
 import { projects } from './projects.js';
 import * as taskmod from './tasks.js';
-import menu from '../images/menu.svg';
+import menu1 from '../images/menu.svg';
+import star1 from '../images/star.svg';
 
 const main = document.querySelector('#main');
 const newTaskBtn = document.querySelector('#new-task');
@@ -41,17 +42,12 @@ function render() {
             task.appendChild(description);
             description.addEventListener('change', handleChange);
 
-        const starredL = document.createElement('label');
-            starredL.setAttribute('for', 'starred');
-            starredL.textContent = 'Important:';
-
-        const starred = document.createElement('input');
-            starred.classList.add('starred');
-            starred.setAttribute('type', 'checkbox');
-            starred.value = taskmod.tasks[i].starred;
-            starredL.appendChild(starred);
-            task.appendChild(starredL);
-            starredL.addEventListener('change', handleChange);
+        const star = new Image();
+            star.src = star1;
+            star.alt = 'Star icon';
+            star.id = 'star';
+            task.appendChild(star);
+            star.addEventListener('click', handleStar);
 
         const due = document.createElement('input');
             due.classList.add('due');
@@ -63,13 +59,13 @@ function render() {
         const dropDown = document.createElement('div');
             dropDown.classList.add('dropdown');
 
-            const img = new Image();
-                img.src = menu;
-                img.id = 'menu';
-                img.alt = 'Menu icon';
-                img.addEventListener('click', handleDrop);
+            const menu = new Image();
+                menu.src = menu1;
+                menu.id = 'menu';
+                menu.alt = 'Menu icon';
+                menu.addEventListener('click', handleDrop);
 
-                dropDown.appendChild(img);
+                dropDown.appendChild(menu);
 
             const dropDownContent = document.createElement('div');
                 dropDownContent.classList.add('dropdown-content');
@@ -125,6 +121,13 @@ function handleChange(e) {
     let value = e.target.value;
     let id = e.target.closest('.task').id;
     taskmod.update(id, property, value)
+}
+
+function handleStar() {
+    const star = document.querySelector('#star');
+    star.classList.toggle('filter-white');
+    let id = star.closest('.task').id;
+    taskmod.toggleStarred(id);
 }
 
 function newTaskClick() {
