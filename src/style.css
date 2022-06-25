@@ -64,6 +64,11 @@ body {
 #delete-icon {
     height: 30px;
     width: 30px;
+    transition: .6s;
+}
+
+#delete-icon:hover {
+    transform: scale(1.3);
 }
 
 .nav:hover, .active {
