@@ -45,6 +45,7 @@ body {
 #nav-top {
     display: flex;
     flex-direction: column;
+    padding: 5px;
 }
 
 .nav, #delete-project {
@@ -60,25 +61,19 @@ body {
     transition: .6s;
 }
 
-.nav:hover, #delete-project:hover, .active {
+.nav:hover, #delete-icon:hover, .active {
     background-color: #7997EE;
 }
 
 .project-wrapper {
     display: flex;
+    align-items: center;
+    padding: 5px;
 }
 
 .project {
-    flex: 7;
+    flex: 7; 
 }
-
-#delete-project {
-    display: flex;
-    flex: 1;
-    justify-content: center;
-}
-
-
 
 #nav hr {
     color: white;
@@ -182,8 +177,11 @@ body {
     padding-top: 10px;
 }
 
+svg {
+    
+}
+
 #menu {
-    color: white;
     width: 38px;
     height: 38px;
     border-radius: 5px;

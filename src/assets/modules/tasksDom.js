@@ -66,6 +66,7 @@ function render() {
             const img = new Image();
                 img.src = menu;
                 img.id = 'menu';
+                img.alt = 'Menu icon';
                 img.addEventListener('click', handleDrop);
 
                 dropDown.appendChild(img);

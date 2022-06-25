@@ -1,4 +1,5 @@
 import * as projects from "./projects";
+import deleteIcon from '../images/delete.svg';
 
 const nav = document.querySelector('#nav-projects');
 const newProjectBtn = document.querySelector('#new-project');
@@ -21,12 +22,14 @@ const render = () => {
         proj.value = projects.projects[i].name;
         wrapper.appendChild(proj);
 
-        const del = document.createElement('button');
-        del.id = 'delete-project';
-        del.textContent = 'X';
-        del.addEventListener('click', removeProject);
+        const img = new Image();
+        img.src = deleteIcon;
+        img.id = 'delete-icon';
+        img.alt = 'Delete icon';
+        img.setAttribute('class', 'nav');
+        img.addEventListener('click', removeProject);
 
-        wrapper.appendChild(del);
+        wrapper.appendChild(img);
 
         nav.insertBefore(wrapper, newProjectBtn);
     }
