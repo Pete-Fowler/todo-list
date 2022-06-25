@@ -134,6 +134,7 @@ body {
     margin: 0px;
     background-color: #274BB8;
     border-radius: 10px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, .8);
 }
 
 .task input, .task label, .dropdown-button {

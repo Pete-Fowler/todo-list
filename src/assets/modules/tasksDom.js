@@ -58,6 +58,7 @@ function render() {
             task.appendChild(due);
             due.addEventListener('change', handleChange);
 
+        
         const dropDown = document.createElement('div');
             dropDown.classList.add('dropdown');
 
@@ -109,7 +110,7 @@ function outStar(e) {
 function assignTask(e) {
     let tIndex = e.target.closest('.task').id;
     let pName = e.target.closest('.menu-item').textContent;
-    let pIndex = e.target.closest('.menu-item').id.slice(-1);
+    // let pIndex = e.target.closest('.menu-item').id.slice(-1);
 
     taskmod.update(tIndex, 'project', pName);
 }

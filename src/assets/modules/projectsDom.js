@@ -1,13 +1,16 @@
 import * as tasksDom from './tasksDom.js';
 import * as projects from "./projects";
+import * as tasks from './tasks.js';
 import deleteIcon from '../images/delete.svg';
 
 const nav = document.querySelector('#nav-projects');
 const newProjectBtn = document.querySelector('#new-project');
+const all = document.querySelector('#all');
+const starred = document.querySelector('#starred');
+const today = document.querySelector('#today');
+const thisWeek = document.querySelector('#this-week');
 
 const render = () => {
-    
-    
     const domProjects = document.querySelectorAll('.project-wrapper');
     domProjects.forEach(e => e.remove());
     
