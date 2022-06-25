@@ -11,6 +11,7 @@ const today = document.querySelector('#today');
 const thisWeek = document.querySelector('#this-week');
 
 let currentView = 'all';
+let currentArray = [];
 
 const render = () => {
     const domProjects = document.querySelectorAll('.project-wrapper');
@@ -57,13 +58,28 @@ const removeProject = (e) => {
 
 const listen = () => {
     newProjectBtn.addEventListener('click', addProject);
-    all.addEventListener('click', changeTasksView)
+    all.addEventListener('click', changeTasksView);
+    starred.addEventListener('click', changeTasksView);
 }
 
 const changeTasksView = (e) => {
-    console.log(tasksMod.tasks);
     let id = e.target.closest('button').id;
-    tasksDom.render(tasksMod.tasks);
+    currentView = id;
+
+    // All 
+    if (currentView === 'all') {
+        tasksDom.render(tasksMod.tasks);
+    }
+    if (currentView === 'starred') {
+        currentArray = tasksMod.tasks.filter(object => object['starred'] === true);
+        tasksDom.render(currentArray);
+    }
+    if (currentView === 'today') {
+        // currentArray = tasksMod.tasks.filter(object )
+    }
+    if (currentView === 'this-week') {
+
+    }
 }
 
 const handleChange = (e) => {

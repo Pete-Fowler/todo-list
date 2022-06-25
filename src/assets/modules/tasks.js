@@ -12,7 +12,6 @@ const getTasks = () => {
 
 const update = (index, property, value) => {
     tasks[index][property] = value;
-    console.log(tasks[index]);
 }
 
 const create = (title, description, starred, due, project) => {
@@ -20,7 +19,7 @@ const create = (title, description, starred, due, project) => {
     }
 
 const blank = () => {
-    tasks.push(create('', '', '', '', ''));
+    tasks.push(create('', '', false, '', ''));
 }
 const del = (id) => {
     tasks.splice(id, 1);

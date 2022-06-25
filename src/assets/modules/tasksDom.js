@@ -46,6 +46,9 @@ function render(array = taskmod.tasks) {
             star.src = star1;
             star.alt = 'Star icon';
             star.id = 'star';
+            if (array[i].starred === true) {
+                star.classList.add('filter-white');
+            }
             task.appendChild(star);
             star.addEventListener('click', handleStar);
             star.addEventListener('mouseover', overStar);
@@ -118,6 +121,7 @@ function assignTask(e) {
 function closeDrop(e) {
     if (!e.target.matches('#menu')) {
         let ddc = document.querySelector('.dropdown-content');
+        if(ddc === null) {return}
         if(ddc.classList.contains('show')) {
             ddc.classList.remove('show');
         }
@@ -136,8 +140,8 @@ function handleChange(e) {
     taskmod.update(id, property, value)
 }
 
-function handleStar() {
-    const star = document.querySelector('#star');
+function handleStar(e) {
+    const star = e.target.closest('#star');
     star.classList.toggle('filter-white');
     let id = star.closest('.task').id;
     taskmod.toggleStarred(id);
