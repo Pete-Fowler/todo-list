@@ -5,6 +5,11 @@ const projects = [
     },
 ];
 
+const update = (index, property, value) => {
+    projects[index][property] = value;
+    console.log(projects);
+}
+
 const create = (name, tasks) => {
     return {name, tasks};
 }
@@ -21,4 +26,4 @@ const del = (id) => {
     projects.splice(id, 1);
 }
 
-export {projects, blank, add, del};
+export {projects, blank, add, del, update};

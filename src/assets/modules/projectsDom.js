@@ -21,6 +21,7 @@ const render = () => {
         proj.classList.add('project');
         proj.value = projects.projects[i].name;
         wrapper.appendChild(proj);
+        proj.addEventListener('change', handleChange);
 
         const img = new Image();
         img.src = deleteIcon;
@@ -49,6 +50,12 @@ const removeProject = (e) => {
 
 const listen = () => {
     newProjectBtn.addEventListener('click', addProject);
+}
+
+const handleChange = (e) => {
+    let id = e.target.closest('.project-wrapper').id.slice(-1);
+    let value = e.target.closest('.project').value;
+    projects.update(id, 'name', value);
 }
 
 export {render, listen};
