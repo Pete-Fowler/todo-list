@@ -48,6 +48,8 @@ function render() {
             star.id = 'star';
             task.appendChild(star);
             star.addEventListener('click', handleStar);
+            star.addEventListener('mouseover', overStar);
+            star.addEventListener('mouseout', outStar);
 
         const due = document.createElement('input');
             due.classList.add('due');
@@ -92,6 +94,16 @@ function render() {
 
         main.insertBefore(task, newTaskBtn);
     }
+}
+
+function overStar(e) {
+    const star = e.target.closest('#star');
+    star.classList.add('hovered');
+}
+
+function outStar(e) {
+    const star = e.target.closest('#star');
+    star.classList.remove('hovered');
 }
 
 function assignTask(e) {
