@@ -11,7 +11,7 @@ const today = document.querySelector('#today');
 const thisWeek = document.querySelector('#this-week');
 
 let currentView = 'all';
-let currentArray = [];
+let currentArray = [tasksMod.tasks];
 
 const render = () => {
     const domProjects = document.querySelectorAll('.project-wrapper');
@@ -42,10 +42,10 @@ const render = () => {
     }
 }
 
-const addProject = () => {
+function addProject() {
     projects.blank();
     render();
-    tasksDom.render();
+    tasksDom.render(currentArray);
 }
 
 const removeProject = (e) => {
@@ -53,7 +53,7 @@ const removeProject = (e) => {
     let id = el.id.slice(-1);
     projects.del(id);
     el.remove();
-    tasksDom.render();
+    tasksDom.render(currentArray);
 }
 
 const listen = () => {
@@ -62,20 +62,20 @@ const listen = () => {
     starred.addEventListener('click', changeTasksView);
 }
 
-const changeTasksView = (e) => {
+function changeTasksView(e) {
     let id = e.target.closest('button').id;
     currentView = id;
 
-    // All 
     if (currentView === 'all') {
-        tasksDom.render(tasksMod.tasks);
+        currentArray = tasksMod.tasks;
+        tasksDom.render(currentArray);
     }
     if (currentView === 'starred') {
         currentArray = tasksMod.tasks.filter(object => object['starred'] === true);
         tasksDom.render(currentArray);
     }
     if (currentView === 'today') {
-        // currentArray = tasksMod.tasks.filter(object )
+        currentArray = tasksMod.tasks.filter(object )
     }
     if (currentView === 'this-week') {
 
@@ -86,7 +86,7 @@ const handleChange = (e) => {
     let id = e.target.closest('.project-wrapper').id.slice(-1);
     let value = e.target.closest('.project').value;
     projects.update(id, 'name', value);
-    tasksDom.render();
+    tasksDom.render(currentArray);
 }
 
 export {render, listen};
