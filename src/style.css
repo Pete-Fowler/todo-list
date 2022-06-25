@@ -3,6 +3,11 @@
     src: url(./assets/fonts/Oswald-VariableFont_wght.ttf);
 }
 
+@font-face {
+    font-family: baloo;
+    src: url('./assets/fonts/Baloo2-VariableFont_wght.ttf');
+}
+
 * {
     font-family: oswald;
 }
@@ -26,6 +31,10 @@ body {
     font-weight: 700;
     background-color: #3261EB;
     grid-area: header;
+}
+
+#title {
+    font-family: baloo;
 }
 
 #nav {
@@ -134,7 +143,7 @@ body {
     transition: .4s;
 }
 
-.task input:hover, .task label:hover, .dropdown-button:hover  {
+.task input:hover, .task label:hover, #menu:hover  {
     background-color: #7997EE;
 }
 
@@ -168,15 +177,16 @@ body {
 .dropdown {
     position: relative;
     display: inline-block;
+    margin: 0px;
+    padding: 5px;
+    padding-top: 10px;
 }
 
-.dropdown-button {
-    font-size: 1.8rem;
-    font-weight: 900;
-    padding: 10px;
-    margin: 5px 10px;
-    transform: rotate(.25turn);
-    padding-top: 0;
+#menu {
+    color: white;
+    width: 38px;
+    height: 38px;
+    border-radius: 5px;
 }
 
 .dropdown-content {

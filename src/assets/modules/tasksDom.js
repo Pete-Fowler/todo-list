@@ -1,5 +1,6 @@
 import { projects } from './projects.js';
 import * as taskmod from './tasks.js';
+import menu from '../images/menu.svg';
 
 const main = document.querySelector('#main');
 const newTaskBtn = document.querySelector('#new-task');
@@ -62,11 +63,12 @@ function render() {
         const dropDown = document.createElement('div');
             dropDown.classList.add('dropdown');
 
-            const dropDownBtn = document.createElement('button');
-                dropDownBtn.classList.add('dropdown-button');
-                dropDownBtn.textContent = '...';
-                dropDownBtn.addEventListener('click', handleDrop);
-                dropDown.appendChild(dropDownBtn);
+            const img = new Image();
+                img.src = menu;
+                img.id = 'menu';
+                img.addEventListener('click', handleDrop);
+
+                dropDown.appendChild(img);
 
             const dropDownContent = document.createElement('div');
                 dropDownContent.classList.add('dropdown-content');
@@ -104,7 +106,7 @@ function assignTask(e) {
 }
 
 function closeDrop(e) {
-    if (!e.target.matches('.dropdown-button')) {
+    if (!e.target.matches('#menu')) {
         let ddc = document.querySelector('.dropdown-content');
         if(ddc.classList.contains('show')) {
             ddc.classList.remove('show');
