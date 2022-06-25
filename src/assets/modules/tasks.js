@@ -6,6 +6,10 @@ let tasks = [{
     project: '',
 }];
 
+const getTasks = () => {
+    return tasks;
+}
+
 const update = (index, property, value) => {
     tasks[index][property] = value;
     console.log(tasks[index]);
@@ -30,4 +34,4 @@ const toggleStarred = (index) => {
     }
 }
 
-export {update, create, tasks, blank, del, toggleStarred};
+export {update, create, tasks, getTasks, blank, del, toggleStarred};

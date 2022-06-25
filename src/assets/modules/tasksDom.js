@@ -14,10 +14,10 @@ function listen() {
 
 }
 
-function render() {
+function render(array = taskmod.tasks) {
     document.querySelectorAll('.task').forEach((e) => {e.remove()});
 
-    for(let i=0; i < taskmod.tasks.length; i++) {
+    for(let i=0; i < array.length; i++) {
         const task = document.createElement('div');
             task.id = `${i}`;
             task.classList.add('task');
@@ -28,7 +28,7 @@ function render() {
             title.setAttribute('placeholder', 'Title');
             title.setAttribute('minlength', '1');
             title.setAttribute('maxlength', '25');
-            title.value = taskmod.tasks[i].title;
+            title.value = array[i].title;
             task.appendChild(title);
             title.addEventListener('change', handleChange);
 
@@ -38,7 +38,7 @@ function render() {
             description.setAttribute('placeholder', 'Description');
             description.setAttribute('minlength', '1');
             description.setAttribute('maxlength', '111');
-            description.value = taskmod.tasks[i].description;
+            description.value = array[i].description;
             task.appendChild(description);
             description.addEventListener('change', handleChange);
 
@@ -54,7 +54,7 @@ function render() {
         const due = document.createElement('input');
             due.classList.add('due');
             due.setAttribute('type', 'date');
-            due.value = taskmod.tasks[i].due;
+            due.value = array[i].due;
             task.appendChild(due);
             due.addEventListener('change', handleChange);
 

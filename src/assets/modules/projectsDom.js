@@ -1,6 +1,6 @@
 import * as tasksDom from './tasksDom.js';
 import * as projects from "./projects";
-import * as tasks from './tasks.js';
+import * as tasksMod from './tasks.js';
 import deleteIcon from '../images/delete.svg';
 
 const nav = document.querySelector('#nav-projects');
@@ -9,6 +9,8 @@ const all = document.querySelector('#all');
 const starred = document.querySelector('#starred');
 const today = document.querySelector('#today');
 const thisWeek = document.querySelector('#this-week');
+
+let currentView = 'all';
 
 const render = () => {
     const domProjects = document.querySelectorAll('.project-wrapper');
@@ -55,6 +57,13 @@ const removeProject = (e) => {
 
 const listen = () => {
     newProjectBtn.addEventListener('click', addProject);
+    all.addEventListener('click', changeTasksView)
+}
+
+const changeTasksView = (e) => {
+    console.log(tasksMod.tasks);
+    let id = e.target.closest('button').id;
+    tasksDom.render(tasksMod.tasks);
 }
 
 const handleChange = (e) => {
