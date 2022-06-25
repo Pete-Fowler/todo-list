@@ -60,6 +60,7 @@ const listen = () => {
     newProjectBtn.addEventListener('click', addProject);
     all.addEventListener('click', changeTasksView);
     starred.addEventListener('click', changeTasksView);
+    today.addEventListener('click', changeTasksView);
 }
 
 function changeTasksView(e) {
@@ -75,7 +76,10 @@ function changeTasksView(e) {
         tasksDom.render(currentArray);
     }
     if (currentView === 'today') {
-        currentArray = tasksMod.tasks.filter(object )
+        let today = new Date();
+        today = today.toISOString().split('T')[0];
+        currentArray = tasksMod.tasks.filter(object => object['due'] === today);
+        tasksDom.render(currentArray);
     }
     if (currentView === 'this-week') {
 
