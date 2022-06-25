@@ -31,7 +31,7 @@ body {
     flex-direction: column;
 }
 
-.nav {
+.nav, #delete-project {
     font-size: 2rem;
     color: white;
     height: 50px;
@@ -41,6 +41,14 @@ body {
     background-color: #274BB8;
     text-align: left;
     transition: .6s;
+}
+
+.project-wrapper {
+    display: flex;
+}
+
+#delete-project {
+    
 }
 
 .nav:hover, .active {
@@ -75,6 +83,7 @@ hr {
     align-self: flex-start;
 }
 
+/* Main */
 #main {
     display: grid;
     grid-template: repeat(auto-fill, 50px) / 1fr;
@@ -139,14 +148,19 @@ hr {
     border-radius: 5px;
 }
 
+/* Dropdown  */
 .dropdown {
     position: relative;
     display: inline-block;
 }
 
 .dropdown-button {
+    font-size: 1.6rem;
+    font-weight: 900;
     padding: 10px;
     margin: 5px 10px;
+    transform: rotate(.25turn);
+    padding-top: 0;
 }
 
 .dropdown-content {

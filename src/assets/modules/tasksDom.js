@@ -64,7 +64,7 @@ function render() {
 
             const dropDownBtn = document.createElement('button');
                 dropDownBtn.classList.add('dropdown-button');
-                dropDownBtn.textContent = 'M';
+                dropDownBtn.textContent = '...';
                 dropDownBtn.addEventListener('click', handleDrop);
                 dropDown.appendChild(dropDownBtn);
 
