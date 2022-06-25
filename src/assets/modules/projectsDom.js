@@ -61,6 +61,7 @@ const listen = () => {
     all.addEventListener('click', changeTasksView);
     starred.addEventListener('click', changeTasksView);
     today.addEventListener('click', changeTasksView);
+    thisWeek.addEventListener('click', changeTasksView);
 }
 
 function changeTasksView(e) {
@@ -74,15 +75,26 @@ function changeTasksView(e) {
     if (currentView === 'starred') {
         currentArray = tasksMod.tasks.filter(object => object['starred'] === true);
         tasksDom.render(currentArray);
-    }
+    }  
     if (currentView === 'today') {
         let today = new Date();
         today = today.toISOString().split('T')[0];
+
         currentArray = tasksMod.tasks.filter(object => object['due'] === today);
         tasksDom.render(currentArray);
     }
     if (currentView === 'this-week') {
-
+        let today = new Date();
+        let week = new Date();
+        week.setDate(today.getDate() + 7);
+        currentArray = tasksMod.tasks.filter((object) => {
+            let date = new Date();
+            date = Date.parse(object['due']);
+            console.log(today);
+            console.log(date);
+            console.log(week);
+            return (date >= today && date <= week);
+        });
     }
 }
 
