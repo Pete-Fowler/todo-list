@@ -17,4 +17,8 @@ const add = (index, task) => {
     projects[index].tasks.push(task);
 }
 
-export {projects, blank, add};
+const del = (id) => {
+    projects.splice(id, 1);
+}
+
+export {projects, blank, add, del};

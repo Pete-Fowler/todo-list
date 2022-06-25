@@ -1,5 +1,12 @@
+@font-face {
+    font-family: oswald;
+    src: url(./assets/fonts/Oswald-VariableFont_wght.ttf);
+}
+
+* {
+    font-family: oswald;
+}
 body {
-    
     color: white;
     height: 100vh;
     width: 100vw;
@@ -34,28 +41,37 @@ body {
 .nav, #delete-project {
     font-size: 2rem;
     color: white;
-    height: 50px;
+    height: 100%;
     border-radius: 10px;
     border: 0px;
-    margin: 10px;
+    margin: 5px 2px;
+    padding: 10px;
     background-color: #274BB8;
     text-align: left;
     transition: .6s;
+}
+
+.nav:hover, #delete-project:hover, .active {
+    background-color: #7997EE;
 }
 
 .project-wrapper {
     display: flex;
 }
 
+.project {
+    flex: 7;
+}
+
 #delete-project {
-    
+    display: flex;
+    flex: 1;
+    justify-content: center;
 }
 
-.nav:hover, .active {
-    background-color: #7997EE;
-}
 
-hr {
+
+#nav hr {
     color: white;
     background-color: white;
     height: 1px;
@@ -108,7 +124,7 @@ hr {
 
 .task input, .task label, .dropdown-button {
     color: white;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     background-color: inherit;
     height: 70%;
     border: none;
@@ -155,7 +171,7 @@ hr {
 }
 
 .dropdown-button {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 900;
     padding: 10px;
     margin: 5px 10px;
@@ -167,11 +183,8 @@ hr {
     display: none;
     position: absolute;
     right: 0;
-    
-    
     box-shadow: 4px 4px 16px 0px rgba(0, 0, 0, .8);
     z-index: 5;
-
     color: white;
     font-size: 1.3rem;
     background-color: #3261EB;

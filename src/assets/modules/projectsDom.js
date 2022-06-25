@@ -6,7 +6,7 @@ const newProjectBtn = document.querySelector('#new-project');
 const render = () => {
     
     
-    const domProjects = document.querySelectorAll('.project');
+    const domProjects = document.querySelectorAll('.project-wrapper');
     domProjects.forEach(e => e.remove());
     
     for(let i=0; i < projects.projects.length; i++) {
@@ -24,6 +24,7 @@ const render = () => {
         const del = document.createElement('button');
         del.id = 'delete-project';
         del.textContent = 'X';
+        del.addEventListener('click', removeProject);
 
         wrapper.appendChild(del);
 
@@ -34,6 +35,13 @@ const render = () => {
 const addProject = () => {
     projects.blank();
     render();
+}
+
+const removeProject = (e) => {
+    let el = e.target.closest('.project-wrapper');
+    let id = el.id.slice(-1);
+    projects.del(id);
+    el.remove();
 }
 
 const listen = () => {
