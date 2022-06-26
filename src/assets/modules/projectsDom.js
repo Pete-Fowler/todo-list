@@ -15,7 +15,7 @@ const modalInput = document.querySelector('#modal-input');
 const modalDelete = document.querySelector('#modal-delete');
 
 let currentView = 'all';
-let currentArray = [tasksMod.tasks];
+let currentArray = tasksMod.tasks;
 
 const render = () => {
     const domProjects = document.querySelectorAll('.project-wrapper');
@@ -45,8 +45,14 @@ const render = () => {
     }
 }
 
-const addProject = () => {
+const showModal = () => {
     modal.style.display = 'block';
+}
+
+const handleInput = () => {
+    let value = modalInput.value;
+    projects.projects.push(projects.create(value));
+    render();
     tasksDom.render(currentArray);
 }
 
@@ -69,13 +75,14 @@ const removeProject = (e) => {
 }
 
 const listen = () => {
-    newProjectBtn.addEventListener('click', addProject);
+    newProjectBtn.addEventListener('click', showModal);
     all.addEventListener('click', changeTasksView);
     starred.addEventListener('click', changeTasksView);
     today.addEventListener('click', changeTasksView);
     thisWeek.addEventListener('click', changeTasksView);
     modalDelete.addEventListener('click', closeModalButton);
     window.addEventListener('click', closeModalWindow);
+    modalInput.addEventListener('change', handleInput)
 }
 
 const projectView = (e) => {

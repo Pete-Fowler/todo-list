@@ -12,12 +12,8 @@ const create = (name) => {
     return {name};
 }
 
-const add = (index, task) => {
-    projects[index].tasks.push(task);
-}
-
 const del = (id) => {
     projects.splice(id, 1);
 }
 
-export {projects, add, del, update, create};
+export {projects, del, update, create};
