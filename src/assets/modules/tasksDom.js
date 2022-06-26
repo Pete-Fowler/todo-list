@@ -1,6 +1,6 @@
 import { projects } from './projects.js';
 import * as taskmod from './tasks.js';
-import currentArray from './projectsDom.js';
+import * as projectsDom from './projectsDom.js';
 import menu1 from '../images/menu.svg';
 import star1 from '../images/star.svg';
 
@@ -150,13 +150,13 @@ function handleStar(e) {
 
 function newTaskClick() {
     taskmod.blank();
-    render();
+    render(projectsDom.currentArray);
 }
 
 function deleteTask (e) {
     let id = e.target.closest('.task').id;
     taskmod.del(id);
-    render();
+    render(projectsDom.currentArray);
 }
 
 export {listen, render};

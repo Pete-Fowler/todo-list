@@ -67,7 +67,6 @@ const closeModalWindow = (e) => {
     }
   }
 
-//   need to clear out task objects' project properties on delete
 const removeProject = (e) => {
     let el = e.target.closest('.project-wrapper');
     let id = el.id.slice(-1);
