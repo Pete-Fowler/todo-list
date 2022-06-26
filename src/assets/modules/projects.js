@@ -1,7 +1,6 @@
 const projects = [
     {
     name: 'Main',
-    tasks: [],
     },
 ];
 
@@ -9,12 +8,8 @@ const update = (index, property, value) => {
     projects[index][property] = value;
 }
 
-const create = (name, tasks) => {
-    return {name, tasks};
-}
-
-const blank = () => {
-    projects.push(create('', ''));
+const create = (name) => {
+    return {name};
 }
 
 const add = (index, task) => {
@@ -25,4 +20,4 @@ const del = (id) => {
     projects.splice(id, 1);
 }
 
-export {projects, blank, add, del, update};
+export {projects, add, del, update, create};

@@ -22,13 +22,12 @@ const render = () => {
         wrapper.id = `p${i}`;
         wrapper.setAttribute('class', 'project-wrapper');
         
-        const proj = document.createElement('input');
-        proj.setAttribute('placeholder', 'Project');
+        const proj = document.createElement('button');
         proj.classList.add('nav');
         proj.classList.add('project');
-        proj.value = projects.projects[i].name;
+        proj.textContent = projects.projects[i].name;
         wrapper.appendChild(proj);
-        proj.addEventListener('change', handleChange);
+        proj.addEventListener('click', projectView);
 
         const img = new Image();
         img.src = deleteIcon;
@@ -42,10 +41,24 @@ const render = () => {
     }
 }
 
-function addProject() {
-    projects.blank();
+const addProject = () => {
+    projects.create(getTitle());
     render();
     tasksDom.render(currentArray);
+}
+
+const getTitle = () => {
+    let background = document.createElement('div');
+    background.id = 'modal-background';
+
+    let modal = document.createElement('div');
+    modal.id = 'project-modal';
+
+    let input = document.createElement('input');
+    input.setAttribute('type', 'text');
+    input.setAttribute('maxlength', '15');
+    input.id = 'project-input';
+
 }
 
 const removeProject = (e) => {
@@ -62,6 +75,15 @@ const listen = () => {
     starred.addEventListener('click', changeTasksView);
     today.addEventListener('click', changeTasksView);
     thisWeek.addEventListener('click', changeTasksView);
+}
+
+const projectView = (e) => {
+    let id = e.target.closest('.project-wrapper').id.slice(-1);
+    let title = projects.projects[id].name;
+    currentArray = tasksMod.tasks.filter(obj => obj.project === title);
+    tasksDom.render(currentArray);
+    console.log(currentArray);
+    console.log(tasksMod.tasks);
 }
 
 function changeTasksView(e) {
@@ -93,19 +115,12 @@ function changeTasksView(e) {
         currentArray = tasksMod.tasks.filter((object) => {
             let date = new Date(Date.parse(object['due']));
             console.log(today);
-            console.log(date);
+            console.log(date);    // testing
             console.log(week);
             return (date >= today && date <= week);
         });
         tasksDom.render(currentArray);
     }
-}
-
-const handleChange = (e) => {
-    let id = e.target.closest('.project-wrapper').id.slice(-1);
-    let value = e.target.closest('.project').value;
-    projects.update(id, 'name', value);
-    tasksDom.render(currentArray);
 }
 
 export {render, listen};

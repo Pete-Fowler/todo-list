@@ -89,8 +89,8 @@ function render(array = taskmod.tasks) {
                     proj.id = `mp${i}`;
                     proj.classList.add('menu-item');
                     proj.textContent = projects[i].name;
-                    dropDownContent.appendChild(proj);
                     proj.addEventListener('click', assignTask);
+                    dropDownContent.appendChild(proj);
                 }
                 dropDown.appendChild(dropDownContent);
 
@@ -113,8 +113,6 @@ function outStar(e) {
 function assignTask(e) {
     let tIndex = e.target.closest('.task').id;
     let pName = e.target.closest('.menu-item').textContent;
-    // let pIndex = e.target.closest('.menu-item').id.slice(-1);
-
     taskmod.update(tIndex, 'project', pName);
 }
 
@@ -137,7 +135,7 @@ function handleChange(e) {
     let property = e.target.className;
     let value = e.target.value;
     let id = e.target.closest('.task').id;
-    taskmod.update(id, property, value)
+    taskmod.update(id, property, value);
 }
 
 function handleStar(e) {

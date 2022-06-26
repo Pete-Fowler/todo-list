@@ -4,14 +4,14 @@ everything to UTC midnight fixed bugs apparently associated with time zone issue
 
 
 
-Tasks
+Implement different task views by project
+    tasks dropdown assign project only assigns first task
 
-task project property is changed by dropdown
-    Style dropdown or add indicator to show which project it is assigned to
+Implement local storage
+
+Style dropdown or add indicator to show which project it is assigned to
 
 fix transition on load
 
-Implement different task views by project
-
-Implement local storage
+remove crazy focus outline for new project & task buttons
 
