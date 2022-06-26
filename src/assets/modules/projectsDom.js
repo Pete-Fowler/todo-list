@@ -9,6 +9,10 @@ const all = document.querySelector('#all');
 const starred = document.querySelector('#starred');
 const today = document.querySelector('#today');
 const thisWeek = document.querySelector('#this-week');
+const modal = document.querySelector('#modal');
+const modalContent = document.querySelector('#modal-content');
+const modalInput = document.querySelector('#modal-input');
+const modalDelete = document.querySelector('#modal-delete');
 
 let currentView = 'all';
 let currentArray = [tasksMod.tasks];
@@ -42,43 +46,14 @@ const render = () => {
 }
 
 const addProject = () => {
-    getTitleModal();
+    modal.style.display = 'block';
     tasksDom.render(currentArray);
 }
 
-const getTitleModal = () => {
-    let body = document.querySelector('body');
-    
-    let modal = document.createElement('div');
-    modal.id = 'modal';
-
-    let content = document.createElement('div');
-    content.id = 'modal-content';
-
-    let input = document.createElement('input');
-    input.setAttribute('type', 'text');
-    input.setAttribute('maxlength', '15');
-    input.setAttribute('placeholder', 'Enter new project name');
-    input.id = 'modal-input';
-    input.classList.add('nav');
-
-    let del = document.createElement('button');
-    del.id = 'modal-delete';
-    del.textContent = 'X';
-    content.appendChild(input);
-    content.appendChild(del);
-    del.addEventListener('click', closeModal);
-    modal.appendChild(content);
-    body.appendChild(modal);
-    
-    modal.style.display = 'block';
-
-    function closeModal () {
-        modal.style.display = 'none';
-    }
+function closeModal () {
+    let modal = document.querySelector('#modal');
+    modal.style.display = 'none';
 }
-
-
 
 const removeProject = (e) => {
     let el = e.target.closest('.project-wrapper');
@@ -94,6 +69,7 @@ const listen = () => {
     starred.addEventListener('click', changeTasksView);
     today.addEventListener('click', changeTasksView);
     thisWeek.addEventListener('click', changeTasksView);
+    modalDelete.addEventListener('click', closeModal);
 }
 
 const projectView = (e) => {

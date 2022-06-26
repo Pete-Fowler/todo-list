@@ -117,23 +117,51 @@ body {
 }
 
 #modal-content {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #7997EE;
     margin: 20% auto;
-    padding: 20px;
+    padding: 5px;
     border: 1px solid #274BB8;
     border-radius: 10px;
-    width: 40%;
+    width: 30%;
+}
+
+#modal-input {
+    width: 95%;
+    font-size: 2rem;
+    color: white;
+    height: 100%;
+    border-radius: 10px;
+    border: 0px;
+    margin: 5px 2px;
+    padding: 10px;
+    background-color: #274BB8;
+    text-align: left;
 }
 
 #modal-delete {
+    font-size: 1rem;
+    font-weight: 700;
     appearance: none;
-    background-color: #274BB8;
+    position: absolute;
+    top: 14px;
+    left: 94%;
+    color: #274BB8;
+    background-color: #7997EE;
+    border: none;
     border-radius: 5px;
     margin-left: auto;
     margin-bottom: auto;
+    transition: .4s;
+}
+
+#modal-delete:hover {
+    color: #7997EE;
+    background-color: #274BB8;
+    border: 1px solid #7997EE;
 }
 
 #new-project:hover, #new-task:hover {
