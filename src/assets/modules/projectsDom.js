@@ -50,10 +50,15 @@ const addProject = () => {
     tasksDom.render(currentArray);
 }
 
-function closeModal () {
-    let modal = document.querySelector('#modal');
+const closeModalButton = () => {
     modal.style.display = 'none';
 }
+
+const closeModalWindow = (e) => {
+    if (e.target == modal) {
+      modal.style.display = "none";
+    }
+  }
 
 const removeProject = (e) => {
     let el = e.target.closest('.project-wrapper');
@@ -69,7 +74,8 @@ const listen = () => {
     starred.addEventListener('click', changeTasksView);
     today.addEventListener('click', changeTasksView);
     thisWeek.addEventListener('click', changeTasksView);
-    modalDelete.addEventListener('click', closeModal);
+    modalDelete.addEventListener('click', closeModalButton);
+    window.addEventListener('click', closeModalWindow);
 }
 
 const projectView = (e) => {
