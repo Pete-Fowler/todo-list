@@ -83,21 +83,22 @@ function changeTasksView(e) {
         currentArray = tasksMod.tasks.filter(object => object['due'] === today);
         tasksDom.render(currentArray);
     }
-    // if (currentView === 'this-week') {
-    //     let today = new Date();
-    //     let week = new Date();
-    //     week.setDate(today.getDate() + 7);
-      
+    if (currentView === 'this-week') {
+        let today = new Date();
+        today = new Date(Date.UTC(today.getFullYear(),today.getMonth(), today.getDate()));
+        let week = new Date();
+        week = new Date(Date.UTC(week.getFullYear(),week.getMonth(), week.getDate()));
+        week.setDate(today.getDate() + 7);
 
-    //     currentArray = tasksMod.tasks.filter((object) => {
-    //         let date = new Date(Date.parse(object['due']));
-    //         console.log(today);
-    //         console.log(date);
-    //         console.log(week);
-    //         return (date >= today && date <= week);
-    //     });
-    //     tasksDom.render(currentArray);
-    // }
+        currentArray = tasksMod.tasks.filter((object) => {
+            let date = new Date(Date.parse(object['due']));
+            console.log(today);
+            console.log(date);
+            console.log(week);
+            return (date >= today && date <= week);
+        });
+        tasksDom.render(currentArray);
+    }
 }
 
 const handleChange = (e) => {

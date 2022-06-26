@@ -1,3 +1,6 @@
+Learning about using date objects, converting to and from strings, and
+comparing dates for the first time was challenging. I found that converting 
+everything to UTC midnight fixed bugs apparently associated with time zone issues.
 
 Tasks
 
@@ -16,8 +19,16 @@ Implement local storage
 
 
 <!-- 
-I currently have just one render function displaying all tasks and the 
+Currently have just one render function displaying all tasks and the 
 dropdown menu.
+
+Need to implement different ways of displaying the task list for All, starred, 
+today, this week, and for each project
+
+Add click event handlers to each of the above
+    when clicked, use currentview function to return a sub array of tasks
+    matching that view 
+
 
 
  -->
