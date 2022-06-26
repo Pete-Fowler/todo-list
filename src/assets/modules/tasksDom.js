@@ -1,5 +1,6 @@
 import { projects } from './projects.js';
 import * as taskmod from './tasks.js';
+import currentArray from './projectsDom.js';
 import menu1 from '../images/menu.svg';
 import star1 from '../images/star.svg';
 

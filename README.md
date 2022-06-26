@@ -6,12 +6,21 @@ Closest does not find display none dropdown content. I worked around this by
 using closest to find the task id, corresponding to task array index number, and
 then using queryselector('${task} .dropdown-content').
 
+
+when in a project view with no tasks, clicking new task button brings back all
+tasks -- need it to stay in project view and assign new task to that project
+
+need highlight for current project view
+need highlight for task dropdown to show which project task is assigned to, w line
+
+need to clear out task objects' project properties on delete
+
 Implement different task views by project
     tasks dropdown assign project only assigns first task
 
 Implement local storage
 
-Style dropdown or add indicator to show which project it is assigned to
+
 
 fix transition on load
 

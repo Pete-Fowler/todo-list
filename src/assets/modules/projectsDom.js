@@ -52,6 +52,7 @@ const showModal = () => {
 const handleInput = () => {
     let value = modalInput.value;
     projects.projects.push(projects.create(value));
+    modalInput.value = '';
     render();
     tasksDom.render(currentArray);
 }
@@ -66,11 +67,13 @@ const closeModalWindow = (e) => {
     }
   }
 
+//   need to clear out task objects' project properties on delete
 const removeProject = (e) => {
     let el = e.target.closest('.project-wrapper');
     let id = el.id.slice(-1);
     projects.del(id);
     el.remove();
+    modalInput.value = '';
     tasksDom.render(currentArray);
 }
 
@@ -126,4 +129,4 @@ function changeTasksView(e) {
     }
 }
 
-export {render, listen};
+export {render, listen, currentArray};
