@@ -7,7 +7,6 @@ const projects = [
 
 const update = (index, property, value) => {
     projects[index][property] = value;
-    console.log(projects);
 }
 
 const create = (name, tasks) => {
