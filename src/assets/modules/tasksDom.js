@@ -69,12 +69,12 @@ function render(array = taskmod.tasks) {
                 menu.src = menu1;
                 menu.id = 'menu';
                 menu.alt = 'Menu icon';
-                menu.addEventListener('click', handleDrop);
-
                 dropDown.appendChild(menu);
+                menu.addEventListener('click', handleDrop);
 
             const dropDownContent = document.createElement('div');
                 dropDownContent.classList.add('dropdown-content');
+                dropDownContent.id = `dropdown-content-${i}`;
                 
                 const del = document.createElement('div');
                 del.classList.add('menu-item');
@@ -117,17 +117,19 @@ function assignTask(e) {
 }
 
 function closeDrop(e) {
-    if (!e.target.matches('#menu')) {
-        let ddc = document.querySelector('.dropdown-content');
-        if(ddc === null) {return}
-        if(ddc.classList.contains('show')) {
-            ddc.classList.remove('show');
-        }
+  if(!e.target.matches('#menu')) {
+    let ddc = document.querySelector('.show');
+    if (ddc === null) {return;}
+    if (ddc.classList.contains('show')) {
+    ddc.classList.toggle('show');
     }
+  }
 }
+   
 
-function handleDrop() {
-    let ddc = document.querySelector('.dropdown-content');
+function handleDrop(e) {
+    let task = e.target.closest('.task').id;
+    let ddc = document.querySelector(`#dropdown-content-${task}`);
     ddc.classList.toggle('show');
 }
 

@@ -82,8 +82,6 @@ const projectView = (e) => {
     let title = projects.projects[id].name;
     currentArray = tasksMod.tasks.filter(obj => obj.project === title);
     tasksDom.render(currentArray);
-    console.log(currentArray);
-    console.log(tasksMod.tasks);
 }
 
 function changeTasksView(e) {
@@ -114,9 +112,6 @@ function changeTasksView(e) {
 
         currentArray = tasksMod.tasks.filter((object) => {
             let date = new Date(Date.parse(object['due']));
-            console.log(today);
-            console.log(date);    // testing
-            console.log(week);
             return (date >= today && date <= week);
         });
         tasksDom.render(currentArray);
