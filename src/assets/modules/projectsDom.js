@@ -42,24 +42,43 @@ const render = () => {
 }
 
 const addProject = () => {
-    projects.create(getTitle());
-    render();
+    getTitleModal();
     tasksDom.render(currentArray);
 }
 
-const getTitle = () => {
-    let background = document.createElement('div');
-    background.id = 'modal-background';
-
+const getTitleModal = () => {
+    let body = document.querySelector('body');
+    
     let modal = document.createElement('div');
-    modal.id = 'project-modal';
+    modal.id = 'modal';
+
+    let content = document.createElement('div');
+    content.id = 'modal-content';
 
     let input = document.createElement('input');
     input.setAttribute('type', 'text');
     input.setAttribute('maxlength', '15');
-    input.id = 'project-input';
+    input.setAttribute('placeholder', 'Enter new project name');
+    input.id = 'modal-input';
+    input.classList.add('nav');
 
+    let del = document.createElement('button');
+    del.id = 'modal-delete';
+    del.textContent = 'X';
+    content.appendChild(input);
+    content.appendChild(del);
+    del.addEventListener('click', closeModal);
+    modal.appendChild(content);
+    body.appendChild(modal);
+    
+    modal.style.display = 'block';
+
+    function closeModal () {
+        modal.style.display = 'none';
+    }
 }
+
+
 
 const removeProject = (e) => {
     let el = e.target.closest('.project-wrapper');

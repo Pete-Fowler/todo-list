@@ -104,6 +104,38 @@ body {
     transition: .6s;
 }
 
+#modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+#modal-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #7997EE;
+    margin: 20% auto;
+    padding: 20px;
+    border: 1px solid #274BB8;
+    border-radius: 10px;
+    width: 40%;
+}
+
+#modal-delete {
+    appearance: none;
+    background-color: #274BB8;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-bottom: auto;
+}
+
 #new-project:hover, #new-task:hover {
     transform: scale(1.3);
 }
