@@ -149,7 +149,10 @@ function handleStar(e) {
 }
 
 function newTaskClick() {
-    taskmod.blank();
+    taskmod.tasks.push(taskmod.create('', '', false, '', projectsDom.currentView));
+    projectsDom.updateArray();
+    console.log(taskmod.tasks);
+    console.log(projectsDom.currentView);
     render(projectsDom.currentArray);
 }
 

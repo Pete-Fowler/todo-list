@@ -18,9 +18,10 @@ const create = (title, description, starred, due, project) => {
         return {title, description, starred, due, project};
     }
 
-const blank = () => {
-    tasks.push(create('', '', false, '', ''));
+const add = (object) => {
+    tasks.push(object);
 }
+
 const del = (id) => {
     tasks.splice(id, 1);
 }
@@ -33,4 +34,4 @@ const toggleStarred = (index) => {
     }
 }
 
-export {update, create, tasks, getTasks, blank, del, toggleStarred};
+export {update, create, tasks, getTasks, add, del, toggleStarred};

@@ -89,8 +89,12 @@ const listen = () => {
 
 const projectView = (e) => {
     let id = e.target.closest('.project-wrapper').id.slice(-1);
-    let title = projects.projects[id].name;
-    currentArray = tasksMod.tasks.filter(obj => obj.project === title);
+    currentView = projects.projects[id].name;
+    updateArray();
+}
+
+const updateArray = () => {
+    currentArray = tasksMod.tasks.filter(obj => obj.project === currentView);
     tasksDom.render(currentArray);
 }
 
@@ -128,4 +132,4 @@ function changeTasksView(e) {
     }
 }
 
-export {render, listen, currentArray};
+export {render, listen, currentArray, currentView, updateArray};

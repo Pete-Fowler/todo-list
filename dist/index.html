@@ -7,26 +7,33 @@
     <title>Todo List</title>
 <script defer src="main.bundle.js"></script></head>
 <body>
-    <div id="header">
-        <div id="title">Todo List</div>
+  <div id="modal">
+    <div id="modal-content">
+      <input type="text" id="modal-input" maxlength="25" placeholder="Enter new project name">
+      </input>
+      <button id="modal-delete">X</button>
     </div>
-    <div id="nav">
-      <div id="nav-top">
-        <button type="button" id="all" class="nav">All</button>
-        <button type="button" id="starred" class="nav">Starred</button>
-        <button type="button" id="today" class="nav">Today</button>
-        <button type="button" id="this-week" class="nav">This Week</button>
-      </div>
-      <hr>
-      <div id="nav-projects">
-        <button type="button" id="new-project">+</button>
-      </div>
+  </div>
+  <div id="header">
+      <div id="title">Todo List</div>
+  </div>
+  <div id="nav">
+    <div id="nav-top">
+      <button type="button" id="all" class="nav">All</button>
+      <button type="button" id="starred" class="nav">Starred</button>
+      <button type="button" id="today" class="nav">Today</button>
+      <button type="button" id="this-week" class="nav">This Week</button>
+    </div>
+    <hr>
+    <div id="nav-projects">
+      <button type="button" id="new-project">+</button>
+    </div>
 
-    </div>
+  </div>
 
-    <div id="main">
-      <button type="button" id="new-task" class="btn">+</button>
-    </div>
+  <div id="main">
+    <button type="button" id="new-task" class="btn">+</button>
+  </div>
     
 </body>
 </html>
