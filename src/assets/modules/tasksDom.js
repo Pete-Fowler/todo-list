@@ -151,7 +151,6 @@ function handleStar(e) {
 function newTaskClick() {
     taskmod.tasks.push(taskmod.create('', '', false, '', projectsDom.projectSelected));
     projectsDom.updateArray();
-    console.log(projectsDom.currentArray);
     render(projectsDom.currentArray);
 }
 

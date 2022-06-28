@@ -71,10 +71,17 @@ const closeModalWindow = (e) => {
 const removeProject = (e) => {
     let el = e.target.closest('.project-wrapper');
     let id = el.id.slice(-1);
+    let projectName = projects.projects[id].name;
     projects.del(id);
     el.remove();
     modalInput.value = '';
+    tasksMod.tasks.forEach(obj => {
+        if (obj.project === projectName) {
+            obj.project = '';
+        }
+    });
     tasksDom.render(currentArray);
+    console.log(tasksMod.tasks);
 }
 
 const listen = () => {
@@ -93,10 +100,6 @@ const projectView = (e) => {
     currentView = projects.projects[id].name;
     projectSelected = currentView;
     updateArray();
-}
-
-const clearProjectSelected = () => {
-    projectSelected = '';
 }
 
 const updateArray = () => {
@@ -146,4 +149,4 @@ function changeTasksView(e) {
 }
 
 export {render, listen, currentArray, currentView, updateArray, 
-    projectSelected, clearProjectSelected};
+    projectSelected};
