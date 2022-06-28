@@ -34,4 +34,6 @@ const toggleStarred = (index) => {
     }
 }
 
+
+
 export {update, create, tasks, getTasks, add, del, toggleStarred};

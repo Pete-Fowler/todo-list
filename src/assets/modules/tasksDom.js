@@ -3,6 +3,7 @@ import * as tasks from './tasks.js';
 import * as projectsDom from './projectsDom.js';
 import menu1 from '../images/menu.svg';
 import star1 from '../images/star.svg';
+import * as index from '../../index.js';
 
 const main = document.querySelector('#main');
 const newTaskBtn = document.querySelector('#new-task');
@@ -99,11 +100,11 @@ function render(array = tasks.tasks) {
                     dropDownContent.appendChild(proj);
                 }
 
-                const none = document.createElement('div');
-                none.id = 'none'
-                none.classList.add('menu-item');
-                none.classList.add('menu-item-hover');
-                none.addEventListener('click', removeFromProject);
+                // const none = document.createElement('div');
+                // none.id = 'none'
+                // none.classList.add('menu-item');
+                // none.classList.add('menu-item-hover');
+                // none.addEventListener('click', removeFromProject);
 
                 dropDown.appendChild(dropDownContent);
 
@@ -137,6 +138,7 @@ function assignTask(e) {
     tasks.update(taskIndex, 'project', projectName);
     item.classList.toggle('ddcactive');
     }
+    index.fillStorage();
 }
 
 function closeDrop(e) {
@@ -161,6 +163,7 @@ function handleChange(e) {
     let value = e.target.value;
     let id = e.target.closest('.task').id;
     tasks.update(id, property, value);
+    index.fillStorage();
 }
 
 function handleStar(e) {
@@ -168,22 +171,21 @@ function handleStar(e) {
     star.classList.toggle('filter-white');
     let id = star.closest('.task').id;
     tasks.toggleStarred(id);
+    index.fillStorage();
 }
 
 function newTaskClick() {
     tasks.tasks.push(tasks.create('', '', false, '', projectsDom.projectSelected));
     projectsDom.updateArray();
     render(projectsDom.currentArray);
+    index.fillStorage();
 }
 
 function deleteTask (e) {
     let id = e.target.closest('.task').id;
     tasks.del(id);
     render(projectsDom.currentArray);
-}
-
-function removeFromProject (e) {
-
+    index.fillStorage();
 }
 
 export {listen, render};

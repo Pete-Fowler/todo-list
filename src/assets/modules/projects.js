@@ -1,4 +1,4 @@
-const projects = [
+let projects = [
     {
     name: 'Main',
     },
