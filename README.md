@@ -7,8 +7,6 @@ using closest to find the task id, corresponding to task array index number, and
 then using queryselector('${task} .dropdown-content').
 
 
-when in a project view with no tasks, clicking new task button brings back all
-tasks -- need it to stay in project view and assign new task to that project
 
 need highlight for current project view
 need highlight for task dropdown to show which project task is assigned to, w line

@@ -14,6 +14,7 @@ const modalContent = document.querySelector('#modal-content');
 const modalInput = document.querySelector('#modal-input');
 const modalDelete = document.querySelector('#modal-delete');
 
+let projectSelected = '';
 let currentView = 'all';
 let currentArray = tasksMod.tasks;
 
@@ -90,17 +91,29 @@ const listen = () => {
 const projectView = (e) => {
     let id = e.target.closest('.project-wrapper').id.slice(-1);
     currentView = projects.projects[id].name;
+    projectSelected = currentView;
     updateArray();
 }
 
+const clearProjectSelected = () => {
+    projectSelected = '';
+}
+
 const updateArray = () => {
+    if (currentView === 'all' || currentView === 'starred' || currentView === 
+    'today' || currentView === 'this-week') {
+        currentArray = tasksMod.tasks;
+        tasksDom.render(currentArray);
+    } else {
     currentArray = tasksMod.tasks.filter(obj => obj.project === currentView);
     tasksDom.render(currentArray);
+    }
 }
 
 function changeTasksView(e) {
     let id = e.target.closest('button').id;
     currentView = id;
+    projectSelected = '';
 
     if (currentView === 'all') {
         currentArray = tasksMod.tasks;
@@ -132,4 +145,5 @@ function changeTasksView(e) {
     }
 }
 
-export {render, listen, currentArray, currentView, updateArray};
+export {render, listen, currentArray, currentView, updateArray, 
+    projectSelected, clearProjectSelected};
