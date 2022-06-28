@@ -96,10 +96,23 @@ const listen = () => {
 }
 
 const projectView = (e) => {
+    removeActive(e);
+    makeActive(e);
+    
     let id = e.target.closest('.project-wrapper').id.slice(-1);
     currentView = projects.projects[id].name;
     projectSelected = currentView;
     updateArray();
+}
+
+const removeActive = (e) => {
+    let btns = document.querySelectorAll('button.nav');
+    btns.forEach(e => e.classList.remove('active'));
+}
+
+const makeActive = (e) => {
+    let element = e.target.closest('button'); 
+    element.classList.add('active');
 }
 
 const updateArray = () => {
@@ -114,7 +127,10 @@ const updateArray = () => {
 }
 
 function changeTasksView(e) {
+    removeActive(e);
+    makeActive(e);
     let id = e.target.closest('button').id;
+    
     currentView = id;
     projectSelected = '';
 
