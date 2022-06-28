@@ -80,8 +80,12 @@ function render(array = tasks.tasks) {
                 const del = document.createElement('div');
                 del.classList.add('menu-item');
                 del.textContent = 'Delete Task';
+                del.classList.add('menu-item-hover');
                 dropDownContent.appendChild(del);
-                del.addEventListener('click', deleteTask); 
+                del.addEventListener('click', deleteTask);
+
+                const hr = document.createElement('hr');
+                dropDownContent.appendChild(hr);
                 
                 const mps = document.querySelectorAll('.menu-project');
                 mps.forEach(e => e.remove);
@@ -89,10 +93,18 @@ function render(array = tasks.tasks) {
                     let proj = document.createElement('div');
                     proj.id = `mp${i}`;
                     proj.classList.add('menu-item');
+                    proj.classList.add('menu-item-hover');
                     proj.textContent = projects[i].name;
                     proj.addEventListener('click', assignTask);
                     dropDownContent.appendChild(proj);
                 }
+
+                const none = document.createElement('div');
+                none.id = 'none'
+                none.classList.add('menu-item');
+                none.classList.add('menu-item-hover');
+                none.addEventListener('click', removeFromProject);
+
                 dropDown.appendChild(dropDownContent);
 
         task.appendChild(dropDown);
@@ -112,13 +124,23 @@ function outStar(e) {
 }
 
 function assignTask(e) {
-    let tIndex = e.target.closest('.task').id;
-    let pName = e.target.closest('.menu-item').textContent;
-    tasks.update(tIndex, 'project', pName);
+    let item = e.target.closest('.menu-item');
+    let taskIndex = e.target.closest('.task').id;
+    let projectName = item.textContent;
+    if (tasks.tasks[taskIndex].project === projectName) {
+        tasks.tasks[taskIndex].project = '';
+        item.classList.remove('ddcactive');
+        item.classList.remove('menu-item-hover');
+        item.addEventListener('mouseout', () => 
+        {item.classList.add('menu-item-hover')});
+    } else {
+    tasks.update(taskIndex, 'project', projectName);
+    item.classList.toggle('ddcactive');
+    }
 }
 
 function closeDrop(e) {
-  if(!e.target.matches('#menu')) {
+  if(!e.target.matches('#menu, .dropdown-content, .menu-item')) {
     let ddc = document.querySelector('.show');
     if (ddc === null) {return;}
     if (ddc.classList.contains('show')) {
@@ -158,6 +180,10 @@ function deleteTask (e) {
     let id = e.target.closest('.task').id;
     tasks.del(id);
     render(projectsDom.currentArray);
+}
+
+function removeFromProject (e) {
+
 }
 
 export {listen, render};
