@@ -8,7 +8,6 @@ then using queryselector('${task} .dropdown-content').
 
 
 
-need highlight for current project view
 need highlight for task dropdown to show which project task is assigned to, w line
 
 Implement local storage
