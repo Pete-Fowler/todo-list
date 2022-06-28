@@ -7,3 +7,13 @@ tasksDom.listen();
 tasksDom.render();
 projDom.listen();
 projDom.render()
+
+// const storage = (() => {
+//     if (localStorage.length === 0) {
+//     fillStorage();
+//     } else {
+//     getStorage();
+//     }
+// })();
+
+
