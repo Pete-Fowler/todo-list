@@ -1,5 +1,5 @@
 import { projects } from './projects.js';
-import * as taskmod from './tasks.js';
+import * as tasks from './tasks.js';
 import * as projectsDom from './projectsDom.js';
 import menu1 from '../images/menu.svg';
 import star1 from '../images/star.svg';
@@ -15,7 +15,7 @@ function listen() {
 
 }
 
-function render(array = taskmod.tasks) {
+function render(array = tasks.tasks) {
     document.querySelectorAll('.task').forEach((e) => {e.remove()});
 
     for(let i=0; i < array.length; i++) {
@@ -114,7 +114,7 @@ function outStar(e) {
 function assignTask(e) {
     let tIndex = e.target.closest('.task').id;
     let pName = e.target.closest('.menu-item').textContent;
-    taskmod.update(tIndex, 'project', pName);
+    tasks.update(tIndex, 'project', pName);
 }
 
 function closeDrop(e) {
@@ -138,25 +138,25 @@ function handleChange(e) {
     let property = e.target.className;
     let value = e.target.value;
     let id = e.target.closest('.task').id;
-    taskmod.update(id, property, value);
+    tasks.update(id, property, value);
 }
 
 function handleStar(e) {
     const star = e.target.closest('#star');
     star.classList.toggle('filter-white');
     let id = star.closest('.task').id;
-    taskmod.toggleStarred(id);
+    tasks.toggleStarred(id);
 }
 
 function newTaskClick() {
-    taskmod.tasks.push(taskmod.create('', '', false, '', projectsDom.projectSelected));
+    tasks.tasks.push(tasks.create('', '', false, '', projectsDom.projectSelected));
     projectsDom.updateArray();
     render(projectsDom.currentArray);
 }
 
 function deleteTask (e) {
     let id = e.target.closest('.task').id;
-    taskmod.del(id);
+    tasks.del(id);
     render(projectsDom.currentArray);
 }
 

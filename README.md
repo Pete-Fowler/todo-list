@@ -11,14 +11,7 @@ then using queryselector('${task} .dropdown-content').
 need highlight for current project view
 need highlight for task dropdown to show which project task is assigned to, w line
 
-need to clear out task objects' project properties on delete
-
-Implement different task views by project
-    tasks dropdown assign project only assigns first task
-
 Implement local storage
-
-
 
 fix transition on load
 

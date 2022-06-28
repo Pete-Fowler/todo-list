@@ -1,6 +1,6 @@
 import * as tasksDom from './tasksDom.js';
 import * as projects from "./projects";
-import * as tasksMod from './tasks.js';
+import * as tasks from './tasks.js';
 import deleteIcon from '../images/delete.svg';
 
 const nav = document.querySelector('#nav-projects');
@@ -16,7 +16,7 @@ const modalDelete = document.querySelector('#modal-delete');
 
 let projectSelected = '';
 let currentView = 'all';
-let currentArray = tasksMod.tasks;
+let currentArray = tasks.tasks;
 
 const render = () => {
     const domProjects = document.querySelectorAll('.project-wrapper');
@@ -75,13 +75,13 @@ const removeProject = (e) => {
     projects.del(id);
     el.remove();
     modalInput.value = '';
-    tasksMod.tasks.forEach(obj => {
+    tasks.tasks.forEach(obj => {
         if (obj.project === projectName) {
             obj.project = '';
         }
     });
     tasksDom.render(currentArray);
-    console.log(tasksMod.tasks);
+    console.log(tasks.tasks);
 }
 
 const listen = () => {
@@ -105,10 +105,10 @@ const projectView = (e) => {
 const updateArray = () => {
     if (currentView === 'all' || currentView === 'starred' || currentView === 
     'today' || currentView === 'this-week') {
-        currentArray = tasksMod.tasks;
+        currentArray = tasks.tasks;
         tasksDom.render(currentArray);
     } else {
-    currentArray = tasksMod.tasks.filter(obj => obj.project === currentView);
+    currentArray = tasks.tasks.filter(obj => obj.project === currentView);
     tasksDom.render(currentArray);
     }
 }
@@ -119,18 +119,18 @@ function changeTasksView(e) {
     projectSelected = '';
 
     if (currentView === 'all') {
-        currentArray = tasksMod.tasks;
+        currentArray = tasks.tasks;
         tasksDom.render(currentArray);
     }
     if (currentView === 'starred') {
-        currentArray = tasksMod.tasks.filter(object => object['starred'] === true);
+        currentArray = tasks.tasks.filter(object => object['starred'] === true);
         tasksDom.render(currentArray);
     }  
     if (currentView === 'today') {
         let today = new Date()
         today = new Date(Date.UTC(today.getFullYear(),today.getMonth(), today.getDate()));
         today = today.toISOString().split('T')[0];
-        currentArray = tasksMod.tasks.filter(object => object['due'] === today);
+        currentArray = tasks.tasks.filter(object => object['due'] === today);
         tasksDom.render(currentArray);
     }
     if (currentView === 'this-week') {
@@ -140,7 +140,7 @@ function changeTasksView(e) {
         week = new Date(Date.UTC(week.getFullYear(),week.getMonth(), week.getDate()));
         week.setDate(today.getDate() + 7);
 
-        currentArray = tasksMod.tasks.filter((object) => {
+        currentArray = tasks.tasks.filter((object) => {
             let date = new Date(Date.parse(object['due']));
             return (date >= today && date <= week);
         });
