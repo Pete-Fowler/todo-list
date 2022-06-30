@@ -2,7 +2,6 @@ import * as tasksDom from './tasksDom.js';
 import * as projects from "./projects";
 import * as tasks from './tasks.js';
 import deleteIcon from '../images/delete.svg';
-import * as index from '../../index.js';
 
 const nav = document.querySelector('#nav-projects');
 const newProjectBtn = document.querySelector('#new-project');
@@ -57,7 +56,7 @@ const handleInput = () => {
     modalInput.value = '';
     render();
     tasksDom.render(currentArray);
-    index.fillStorage();
+   
 }
 
 const closeModalButton = () => {
@@ -83,10 +82,6 @@ const removeProject = (e) => {
         }
     });
     tasksDom.render(currentArray);
-<<<<<<< HEAD
-    index.fillStorage();
-=======
->>>>>>> 588f28d (Local storage for tasks working)
 }
 
 const listen = () => {
