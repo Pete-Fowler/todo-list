@@ -3,6 +3,7 @@ import * as tasks from './tasks.js';
 import * as projectsDom from './projectsDom.js';
 import menu1 from '../images/menu.svg';
 import star1 from '../images/star.svg';
+import newTask1 from '../images/newTask.svg';
 import * as index from '../../index.js';
 
 const main = document.querySelector('#main');
@@ -12,8 +13,12 @@ const newProjectBtn = document.querySelector('#new-project');
 window.addEventListener('click', closeDrop);
 
 function listen() {
+    const newTask = new Image();
+    newTask.src = newTask1;
+    newTask.alt = 'New task icon';
+    newTask.id = 'new-task-img';
+    newTaskBtn.appendChild(newTask);
     newTaskBtn.addEventListener('click', newTaskClick);
-
 }
 
 function render(array = tasks.tasks) {

@@ -2,6 +2,7 @@ import * as tasksDom from './tasksDom.js';
 import * as projects from "./projects";
 import * as tasks from './tasks.js';
 import deleteIcon from '../images/delete.svg';
+import newProject1 from '../images/newProject.svg';
 
 const nav = document.querySelector('#nav-projects');
 const newProjectBtn = document.querySelector('#new-project');
@@ -86,6 +87,12 @@ const removeProject = (e) => {
 }
 
 const listen = () => {
+    const newProject = new Image();
+        newProject.src = newProject1;
+        newProject.alt = 'New project icon';
+        newProject.id = 'new-project-img';
+        newProjectBtn.appendChild(newProject);
+    
     newProjectBtn.addEventListener('click', showModal);
     all.addEventListener('click', changeTasksView);
     starred.addEventListener('click', changeTasksView);
