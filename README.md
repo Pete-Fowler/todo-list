@@ -15,8 +15,3 @@ to display: none. I worked around this by using closest to find the task id,
 corresponding to task array index number, and then using queryselector('${task} 
 .dropdown-content'). Another option, although not tested, may have been to use
 display: hidden instead of display: none.
-
-
-
-remove crazy focus outline for new project & task buttons
-
