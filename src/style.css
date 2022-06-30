@@ -115,10 +115,6 @@ body {
     background-color: #7997EE;
 }
 
-#new-task-img, #new-project-img {
-    
-}
-
 #modal {
     display: none;
     position: fixed;
