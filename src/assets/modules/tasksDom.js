@@ -147,7 +147,7 @@ function assignTask(e) {
 }
 
 function closeDrop(e) {
-  if(!e.target.matches('#menu, .dropdown-content, .menu-item')) {
+  if(!e.target.matches('#menu')) {
     let ddc = document.querySelector('.show');
     if (ddc === null) {return;}
     if (ddc.classList.contains('show')) {
