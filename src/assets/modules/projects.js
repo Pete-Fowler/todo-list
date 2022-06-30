@@ -1,4 +1,5 @@
-let projects = [
+
+var projects = [
     {
     name: 'Main',
     },

@@ -1,13 +1,13 @@
-let tasks = [{
-    title: 'Run',
-    description: 'Go running',
-    starred: false,
-    due: '2022-06-21',
-    project: '',
-}];
+
+
+
+const storeTasks = () => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
 
 const getTasks = () => {
-    return tasks;
+    let existingTasks = JSON.parse(localStorage.getItem(tasks));
+    return existingTasks;
 }
 
 const update = (index, property, value) => {
@@ -34,6 +34,20 @@ const toggleStarred = (index) => {
     }
 }
 
+let tasks = [];
+console.log(localStorage);
+if (localStorage.length === 0) {
+    tasks = [{
+        title: 'Run',
+        description: 'Go running',
+        starred: false,
+        due: '2022-06-21',
+        project: '',
+}];
+} else {
+    tasks = getTasks();
+}
 
+console.log(tasks);
 
-export {update, create, tasks, getTasks, add, del, toggleStarred};
+export {update, create, tasks, getTasks, add, del, toggleStarred, storeTasks};
