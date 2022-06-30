@@ -1,9 +1,11 @@
+const storeProjects = () => {
+    localStorage.setItem('projects', JSON.stringify(projects));
+}
 
-var projects = [
-    {
-    name: 'Main',
-    },
-];
+const getProjects = () => {
+    let existingProjects = JSON.parse(localStorage.getItem('projects'));
+    return existingProjects;
+}
 
 const update = (index, property, value) => {
     projects[index][property] = value;
@@ -17,4 +19,10 @@ const del = (id) => {
     projects.splice(id, 1);
 }
 
-export {projects, del, update, create};
+let projects = [];
+
+if(localStorage.length !== 0){
+    projects = getProjects();
+}
+
+export {projects, del, update, create, storeProjects, getProjects};

@@ -35,17 +35,8 @@ const toggleStarred = (index) => {
 }
 
 let tasks = [];
-if (localStorage.length === 0) {
-    tasks = [{
-        title: 'Run',
-        description: 'Go running',
-        starred: false,
-        due: '2022-06-21',
-        project: '',
-}];
-} else {
+if (localStorage.length !== 0) {
     tasks = getTasks();
 }
-
 
 export {update, create, tasks, getTasks, add, del, toggleStarred, storeTasks};

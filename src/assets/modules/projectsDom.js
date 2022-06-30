@@ -56,7 +56,7 @@ const handleInput = () => {
     modalInput.value = '';
     render();
     tasksDom.render(currentArray);
-   
+    projects.storeProjects();
 }
 
 const closeModalButton = () => {
@@ -82,6 +82,7 @@ const removeProject = (e) => {
         }
     });
     tasksDom.render(currentArray);
+    projects.storeProjects();
 }
 
 const listen = () => {
@@ -127,7 +128,7 @@ const updateArray = () => {
 }
 
 function changeTasksView(e) {
-    removeActive(e);
+    removeActive(e);    // UI highlighting
     makeActive(e);
     let id = e.target.closest('button').id;
     
