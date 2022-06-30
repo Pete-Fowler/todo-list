@@ -6,7 +6,7 @@ const storeTasks = () => {
 }
 
 const getTasks = () => {
-    let existingTasks = JSON.parse(localStorage.getItem(tasks));
+    let existingTasks = JSON.parse(localStorage.getItem('tasks'));
     return existingTasks;
 }
 
@@ -35,7 +35,6 @@ const toggleStarred = (index) => {
 }
 
 let tasks = [];
-console.log(localStorage);
 if (localStorage.length === 0) {
     tasks = [{
         title: 'Run',
@@ -48,6 +47,5 @@ if (localStorage.length === 0) {
     tasks = getTasks();
 }
 
-console.log(tasks);
 
 export {update, create, tasks, getTasks, add, del, toggleStarred, storeTasks};

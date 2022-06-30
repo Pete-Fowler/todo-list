@@ -83,7 +83,10 @@ const removeProject = (e) => {
         }
     });
     tasksDom.render(currentArray);
+<<<<<<< HEAD
     index.fillStorage();
+=======
+>>>>>>> 588f28d (Local storage for tasks working)
 }
 
 const listen = () => {

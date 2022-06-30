@@ -138,7 +138,11 @@ function assignTask(e) {
     tasks.update(taskIndex, 'project', projectName);
     item.classList.toggle('ddcactive');
     }
+<<<<<<< HEAD
     index.fillStorage();
+=======
+    tasks.storeTasks();
+>>>>>>> 588f28d (Local storage for tasks working)
 }
 
 function closeDrop(e) {
@@ -163,7 +167,11 @@ function handleChange(e) {
     let value = e.target.value;
     let id = e.target.closest('.task').id;
     tasks.update(id, property, value);
+<<<<<<< HEAD
     index.fillStorage();
+=======
+    tasks.storeTasks();
+>>>>>>> 588f28d (Local storage for tasks working)
 }
 
 function handleStar(e) {
@@ -171,21 +179,36 @@ function handleStar(e) {
     star.classList.toggle('filter-white');
     let id = star.closest('.task').id;
     tasks.toggleStarred(id);
+<<<<<<< HEAD
     index.fillStorage();
+=======
+    tasks.storeTasks();
+>>>>>>> 588f28d (Local storage for tasks working)
 }
 
 function newTaskClick() {
     tasks.tasks.push(tasks.create('', '', false, '', projectsDom.projectSelected));
     projectsDom.updateArray();
     render(projectsDom.currentArray);
+<<<<<<< HEAD
     index.fillStorage();
+=======
+    tasks.storeTasks();
+>>>>>>> 588f28d (Local storage for tasks working)
 }
 
 function deleteTask (e) {
     let id = e.target.closest('.task').id;
     tasks.del(id);
     render(projectsDom.currentArray);
+<<<<<<< HEAD
     index.fillStorage();
 }
+=======
+    tasks.storeTasks();
+}
+
+
+>>>>>>> 588f28d (Local storage for tasks working)
 
 export {listen, render};
