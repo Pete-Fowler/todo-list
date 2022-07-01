@@ -1,4 +1,4 @@
-<a href='https://pete-fowler.github.io/todo-list/'>Live demo</a>
+<a href='https://pete-fowler.github.io/todo-list/'>Live page</a>
 
 This project provided additional exerience using webpack and organizing code into
 separate JS modules. I opted to separate code by tasks and projects, and to
