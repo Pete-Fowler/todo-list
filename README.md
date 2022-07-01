@@ -2,7 +2,9 @@
 
 This is a basic todo list, allowing a user to create tasks, add a description,
 mark them starred, add a due date, and create projects tasks can be assigned to. 
-Tasks can be viewed all at once, due today, due this week, starred, or by project.  
+Tasks can be viewed all at once, due today, due this week, starred, or by project.
+The site uses localStorage so that the tasks and projects remain after refreshing
+or closing the browser window.  
 
 This project provided additional exerience using webpack and organizing code into
 separate JS modules. I opted to separate code by tasks and projects, and to
